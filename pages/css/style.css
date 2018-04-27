@@ -50,3 +50,59 @@
 #druga:hover+#treca {
     z-index: -1;
 }
+
+.jumbotron2 {
+    background-image: url('../images/sarajevo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.bg {
+    background-image: url('../images/aboutUsBG.jpg');
+    background-size: cover;
+    background-position: center;
+    /* max-height: 330px;*/
+}
+
+#abufb:hover {
+    cursor: pointer;
+}
+
+#button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: rgb(196, 196, 196);
+    background-color: #5F5F5F;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+}
+
+#button:hover {
+    opacity: 0.8;
+}
+
+.aboutUs {
+    opacity: 0.8;
+    -webkit-transition: opacity 0.5s ease-out;
+    filter: grayscale(1) sepia(100);
+    -webkit-filter: grayscale(1) sepia(100);
+    -moz-filter: grayscale(1) sepia(100);
+    -webkit-transition: ease-out;
+    -webkit-transition-duration: 0.8s;
+}
+
+.aboutUs:hover {
+    opacity: 1;
+    -webkit-transition: opacity 1s ease-in;
+    filter: grayscale(0) sepia(0);
+    -webkit-filter: grayscale(0) sepia(0);
+    -moz-filter: grayscale(0) sepia(0);
+    -webkit-transition: ease-in;
+    -webkit-transition-duration: 0.8s;
+}
