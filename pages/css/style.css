@@ -1,0 +1,52 @@
+.jumbotron {
+    background-image: url('../images/jumbotron.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.link:hover {
+    color: rgb(0, 41, 136) !important;
+}
+
+#why {
+    background-image: url('../images/why.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 182px !important;
+}
+
+.why-2 {
+    background-image: url('../images/why2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.index {
+    transition: transform 2s;
+}
+
+.index:hover {
+    filter: drop-shadow(15px 15px 10px rgba(0, 0, 0, 0.8));
+    -webkit-filter: drop-shadow(15px 15px 10px rgba(0, 0, 0, 0.8));
+    -moz-filter: drop-shadow(15px 15px 10px rgba(0, 0, 0, 0.8));
+    transform: scale(1.1);
+    z-index: -1 !important;
+}
+
+#prva img:hover {
+    z-index: 1;
+}
+
+#prva:hover+#druga {
+    z-index: -1;
+}
+
+#druga img:hover {
+    z-index: 1;
+}
+
+#druga:hover+#treca {
+    z-index: -1;
+}
