@@ -1,0 +1,32 @@
+{
+  "name": "btt-meanstack",
+  "version": "1.0.0",
+  "description": "btt project using meanStack ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devAbu/btt-meanStack.git"
+  },
+  "keywords": [
+    "btt",
+    "web",
+    "arabian",
+    "arab",
+    "bosna",
+    "bosnia",
+    "tourist",
+    "travel"
+  ],
+  "author": "abu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devAbu/btt-meanStack/issues"
+  },
+  "homepage": "https://github.com/devAbu/btt-meanStack#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
