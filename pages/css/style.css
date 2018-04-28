@@ -114,3 +114,45 @@
     -webkit-transition: ease-in;
     -webkit-transition-duration: 0.8s;
 }
+
+.jumbotron3 {
+    background-image: url('../images/tours.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+#search-loged {
+    width: 450px;
+    -webkit-transition: width 0.8s ease-in-out;
+    transition: width 0.8s ease-in-out;
+}
+
+#search-loged:focus {
+    width: 100%;
+}
+
+.tourPlans {
+    opacity: 0.8;
+    -webkit-transition: opacity ease-out;
+    filter: grayscale(1) sepia(1);
+    -webkit-filter: grayscale(1) sepia(1);
+    -moz-filter: grayscale(1) sepia(1);
+    -webkit-transition: ease-out;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.tourPlans:hover {
+    opacity: 1;
+    -webkit-transition: opacity 0.4s ease-in;
+    filter: grayscale(0) sepia(0);
+    -webkit-filter: grayscale(0) sepia(0);
+    -moz-filter: grayscale(0) sepia(0);
+    -webkit-transition: ease-in;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transition-duration: 0.5s;
+}
