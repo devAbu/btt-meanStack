@@ -10,7 +10,7 @@
     color: rgb(0, 41, 136) !important;
 }
 
-#why {
+.why {
     background-image: url('../images/why.jpg');
     background-position: center;
     background-size: cover;
