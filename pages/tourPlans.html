@@ -13,14 +13,29 @@
     <meta name="description" content="BTT - Bosnian Toursit Travel offers the best tour plans and the best hotels in B&H. ">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
+    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script> -->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script> -->
+    <!--     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+ -->
+    <!--provjeriti-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
 </head>
 
+
 <body>
+
+
 
     <nav class="navbar bg-primary navbar-dark navbar-expand-md fixed-top" style="opacity:0.7; font-size:18px;">
         <a href="index.html" class="navbar-brand">
@@ -66,6 +81,9 @@
             </ul>
         </div>
     </nav>
+
+
+
 
     <!-- <div class="modal fade" id="SignModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
@@ -218,21 +236,33 @@
     </section>
 
     <section>
-        <div class="row no-gutters">
-            <div class="col-5 offset-2">
-                <input id="search-loged" type="text" class="form-control mt-2" placeholder="Search...">
+
+        <!-- <div ng-controller="CollapseDemoCtrl" ng-app="ui.bootstrap.demo">
+            <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse Vertically</button>
+            <div uib-collapse="isCollapsed">
+                <div class="well well-lg">Some content</div>
             </div>
         </div>
-        <!-- <div class="col-2">
-            <button id="filters" class="btn btn-success my-2  ml-4" style="width:200px;" data-toggle="collapse" data-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-                <i class="fas fa-sliders-h mr-2" data-fa-transform="rotate-90"></i>
-                Filters
-            </button>
-        </div>
-        </div>
-        <div class="collapse" id="collapseExample">
-            <div class="row">
+
+        <script>
+            angular.module('ui.bootstrap.demo', []).controller('CollapseDemoCtrl', function ($scope) {
+                $scope.isCollapsed = false;
+            });
+        </script>-->
+
+
+        <div ng-app="">
+            <div class="row no-gutters">
+                <div class="col-5 offset-2">
+                    <input id="search-loged" type="text" class="form-control mt-2" placeholder="Search...">
+                </div>
+                <div class="col-2">
+                    <button ng-click="toggle=!toggle" id="filters" class="btn btn-success my-2  ml-4" style="width:200px;">
+                        <i class="fas fa-sliders-h mr-2" data-fa-transform="rotate-90"></i> Filters</button>
+
+                </div>
+            </div>
+            <div class="row" ng-show="toggle">
                 <div class=" col-12 text-success offset-1 mt-2 mb-5 ">
                     <i class="fas fa-rss "></i>
                     xx Tour found
@@ -303,7 +333,7 @@
                     <br />
                 </div>
             </div>
-        </div> -->
+        </div>
     </section>
 
     <section>
