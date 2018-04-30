@@ -3,46 +3,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
 <body>
-
-    <div ng-app="myApp" ng-controller="placesCtrl">
-        <!-- <input type="text" ng-model="searchBox"> | filter: searchBox" -->
-        <ul>
-            <li ng-repeat="x in places ">
-                {{ x.city + ' ' + x.length + ' ' x.people }}
-            </li>
-        </ul>
-    </div>
-
-    <script>
-        angular.module('myApp', []).controller('placesCtrl', function ($scope) {
-            $scope.places = [{
-                    city: 'Sarajevo',
-                    length: '7 days',
-                    people: '5 max'
-                },
-                {
-                    city: 'Sarajevo',
-                    length: '7 days',
-                    people: '5 max'
-                },
-                {
-                    city: 'Sarajevo',
-                    length: '7 days',
-                    people: '5 max'
-                },
-            ];
-        });
-    </script>
-
-
+    <!-- 
     <div ng-app="myApp2" ng-controller="namesCtrl2">
-
+        <input type="text" ng-model="searchBox2">
         <ul>
-            <li ng-repeat="x in names">
+            <li ng-repeat="x in names | filter: searchBox2">
                 {{ x.name + ', ' + x.country }}
             </li>
         </ul>
-
     </div>
 
     <script>
@@ -61,7 +29,43 @@
                 }
             ];
         });
+    </script> -->
+
+    <div ng-app="myApp" ng-controller="placesCtrl">
+        <input type="text" ng-model="searchBox">
+        <ul>
+            <li ng-repeat="x in places | filter: searchBox">
+                {{ x.title + ', ' + x.period + ', ' + x.length + ', ' + x.people }}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        angular.module('myApp', []).controller('placesCtrl', function ($scope) {
+            $scope.places = [{
+                    period: 'November - December',
+                    title: 'Zima',
+                    length: '7 days',
+                    people: '5 max'
+                },
+                {
+                    period: 'November - December',
+                    title: 'Jesen',
+                    length: '7 days',
+                    people: '5 max'
+                },
+                {
+                    period: 'November - December',
+                    title: 'Zima',
+                    length: '7 days',
+                    people: '5 max'
+                }
+            ];
+        });
     </script>
+
+
+
 
 </body>
 

@@ -248,7 +248,33 @@
         </script>-->
 
 
-        <div ng-app="filters">
+        <div ng-app="myApp">
+            <div ng-controller="placesCtrl">
+                <input type="text" ng-model="searchBox">
+                <ul>
+                    <li ng-repeat="x in places | filter: searchBox">
+                        {{ x.title + ', ' + x.period + ', ' + x.length + ', ' + x.people }}
+                    </li>
+                </ul>
+            </div>
+
+            <script>
+                angular.module('myApp', []).controller('placesCtrl', function ($scope) {
+                    $scope.places = [{
+                            period: 'November - February',
+                            title: 'Zima',
+                            length: '5 days',
+                            people: '8 max'
+                        },
+                        {
+                            period: 'March - August',
+                            title: 'Jesen - Proljece - Ljeto',
+                            length: '7 days',
+                            people: '8 max'
+                        },
+                    ];
+                });
+            </script>
             <div class="row no-gutters">
                 <div class="col-5 offset-2">
                     <input id="search-loged" type="text" class="form-control mt-2" placeholder="Search...">
@@ -259,7 +285,6 @@
 
                 </div>
             </div>
-
             <div class="row" ng-show="toggle">
                 <div class=" col-12 text-success offset-1 mt-2 mb-5 ">
                     <i class="fas fa-rss "></i>
@@ -331,70 +356,10 @@
                     <br />
                 </div>
             </div>
-
         </div>
     </section>
 
     <section>
-
-        <!-- <div ng-app="search" ng-controller="searchCon">
-            <!-- <input type="text" ng-model="searchBox"> | filter: searchBox" --
-        <ul>
-            <li ng-repeat="x in places ">
-                {{x.city + ' ' + x.length + ' ' x.people}}
-            </li>
-        </ul>
-        </div>
-
-        <script>
-            angular.module('search', []).controller('searchCon', function ($scope) {
-                $scope.places = [{
-                        city: 'Sarajevo',
-                        length: '7 days',
-                        people: '5 max'
-                    },
-                    {
-                        city: 'Sarajevo',
-                        length: '7 days',
-                        people: '5 max'
-                    },
-                    {
-                        city: 'Sarajevo',
-                        length: '7 days',
-                        people: '5 max'
-                    },
-                ];
-            });
-        </script> -->
-
-        <!-- <div ng-app="myApp" ng-controller="namesCtrl">
-
-            <ul>
-                <li ng-repeat="x in names">
-                    {{ x.name + ', ' + x.country }}
-                </li>
-            </ul>
-
-        </div>
-
-        <script>
-            angular.module('myApp', []).controller('namesCtrl', function ($scope) {
-                $scope.names = [{
-                        name: 'Jani',
-                        country: 'Norway'
-                    },
-                    {
-                        name: 'Hege',
-                        country: 'Sweden'
-                    },
-                    {
-                        name: 'Kai',
-                        country: 'Denmark'
-                    }
-                ];
-            });
-        </script> -->
-
         <div class="card text-center mt-4 ">
             <div class="card-header text-success h3 text-uppercase ">
                 Zima
@@ -850,8 +815,6 @@
             </div>
         </div>
     </footer>
-
-
 
 
     <!-- <div ng-app="rating">
