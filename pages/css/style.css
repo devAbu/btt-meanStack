@@ -36,19 +36,19 @@
 }
 
 #prva img:hover {
-    z-index: 1;
+    z-index: 1 !important;
 }
 
 #prva:hover+#druga {
-    z-index: -1;
+    z-index: -1 !important;
 }
 
 #druga img:hover {
-    z-index: 1;
+    z-index: 1 !important;
 }
 
 #druga:hover+#treca {
-    z-index: -1;
+    z-index: -1 !important;
 }
 
 .jumbotron2 {
