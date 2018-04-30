@@ -232,7 +232,7 @@
         </div>
     </section>
 
-    <section>
+    <section ng-app="myApp">
 
         <!-- <div ng-controller="CollapseDemoCtrl" ng-app="ui.bootstrap.demo">
             <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse Vertically</button>
@@ -248,37 +248,35 @@
         </script>-->
 
 
-        <div ng-app="myApp">
-            <div ng-controller="placesCtrl">
-                <input type="text" ng-model="searchBox">
-                <ul>
-                    <li ng-repeat="x in places | filter: searchBox">
-                        {{ x.title + ', ' + x.period + ', ' + x.length + ', ' + x.people }}
-                    </li>
-                </ul>
-            </div>
+        <div>
 
-            <script>
-                angular.module('myApp', []).controller('placesCtrl', function ($scope) {
-                    $scope.places = [{
-                            period: 'November - February',
-                            title: 'Zima',
-                            length: '5 days',
-                            people: '8 max'
-                        },
-                        {
-                            period: 'March - August',
-                            title: 'Jesen - Proljece - Ljeto',
-                            length: '7 days',
-                            people: '8 max'
-                        },
-                    ];
-                });
-            </script>
+
             <div class="row no-gutters">
-                <div class="col-5 offset-2">
-                    <input id="search-loged" type="text" class="form-control mt-2" placeholder="Search...">
+                <div class="col-5 offset-2" ng-controller="placesCtrl">
+                    <input id="search-loged" ng-model="searchBox" type="text" class="form-control mt-2" placeholder="Search...">
+                    <ul>
+                        <li ng-repeat="x in places | filter: searchBox">
+                            {{ x.title + ', ' + x.period + ', ' + x.length + ', ' + x.people }}
+                        </li>
+                    </ul>
                 </div>
+                <script>
+                    angular.module('myApp', []).controller('placesCtrl', function ($scope) {
+                        $scope.places = [{
+                                period: 'November - February',
+                                title: 'Zima',
+                                length: '5 days',
+                                people: '8 max'
+                            },
+                            {
+                                period: 'March - August',
+                                title: 'Jesen - Proljece - Ljeto',
+                                length: '7 days',
+                                people: '8 max'
+                            },
+                        ];
+                    });
+                </script>
                 <div class="col-2">
                     <button ng-click="toggle=!toggle" id="filters" class="btn btn-success my-2  ml-4" style="width:200px;">
                         <i class="fas fa-sliders-h mr-2" data-fa-transform="rotate-90"></i> Filters</button>
