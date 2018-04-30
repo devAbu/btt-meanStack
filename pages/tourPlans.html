@@ -13,19 +13,17 @@
     <meta name="description" content="BTT - Bosnian Toursit Travel offers the best tour plans and the best hotels in B&H. ">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
 
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script> -->
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script> -->
-    <!--     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
- -->
+
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
 
@@ -250,7 +248,7 @@
         </script>-->
 
 
-        <div ng-app="">
+        <div ng-app="filters">
             <div class="row no-gutters">
                 <div class="col-5 offset-2">
                     <input id="search-loged" type="text" class="form-control mt-2" placeholder="Search...">
@@ -261,6 +259,7 @@
 
                 </div>
             </div>
+
             <div class="row" ng-show="toggle">
                 <div class=" col-12 text-success offset-1 mt-2 mb-5 ">
                     <i class="fas fa-rss "></i>
@@ -332,10 +331,70 @@
                     <br />
                 </div>
             </div>
+
         </div>
     </section>
 
     <section>
+
+        <!-- <div ng-app="search" ng-controller="searchCon">
+            <!-- <input type="text" ng-model="searchBox"> | filter: searchBox" --
+        <ul>
+            <li ng-repeat="x in places ">
+                {{x.city + ' ' + x.length + ' ' x.people}}
+            </li>
+        </ul>
+        </div>
+
+        <script>
+            angular.module('search', []).controller('searchCon', function ($scope) {
+                $scope.places = [{
+                        city: 'Sarajevo',
+                        length: '7 days',
+                        people: '5 max'
+                    },
+                    {
+                        city: 'Sarajevo',
+                        length: '7 days',
+                        people: '5 max'
+                    },
+                    {
+                        city: 'Sarajevo',
+                        length: '7 days',
+                        people: '5 max'
+                    },
+                ];
+            });
+        </script> -->
+
+        <!-- <div ng-app="myApp" ng-controller="namesCtrl">
+
+            <ul>
+                <li ng-repeat="x in names">
+                    {{ x.name + ', ' + x.country }}
+                </li>
+            </ul>
+
+        </div>
+
+        <script>
+            angular.module('myApp', []).controller('namesCtrl', function ($scope) {
+                $scope.names = [{
+                        name: 'Jani',
+                        country: 'Norway'
+                    },
+                    {
+                        name: 'Hege',
+                        country: 'Sweden'
+                    },
+                    {
+                        name: 'Kai',
+                        country: 'Denmark'
+                    }
+                ];
+            });
+        </script> -->
+
         <div class="card text-center mt-4 ">
             <div class="card-header text-success h3 text-uppercase ">
                 Zima
@@ -790,8 +849,10 @@
                 <p style="font-size:20px; ">&copy; 2018 Abu</p>
             </div>
         </div>
-
     </footer>
+
+
+
 
     <!-- <div ng-app="rating">
             <div ng-controller="RatingDemoCtrl">

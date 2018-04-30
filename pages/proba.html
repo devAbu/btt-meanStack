@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+    <div ng-app="myApp" ng-controller="placesCtrl">
+        <!-- <input type="text" ng-model="searchBox"> | filter: searchBox" -->
+        <ul>
+            <li ng-repeat="x in places ">
+                {{ x.city + ' ' + x.length + ' ' x.people }}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        angular.module('myApp', []).controller('placesCtrl', function ($scope) {
+            $scope.places = [{
+                    city: 'Sarajevo',
+                    length: '7 days',
+                    people: '5 max'
+                },
+                {
+                    city: 'Sarajevo',
+                    length: '7 days',
+                    people: '5 max'
+                },
+                {
+                    city: 'Sarajevo',
+                    length: '7 days',
+                    people: '5 max'
+                },
+            ];
+        });
+    </script>
+
+
+    <div ng-app="myApp2" ng-controller="namesCtrl2">
+
+        <ul>
+            <li ng-repeat="x in names">
+                {{ x.name + ', ' + x.country }}
+            </li>
+        </ul>
+
+    </div>
+
+    <script>
+        angular.module('myApp2', []).controller('namesCtrl2', function ($scope) {
+            $scope.names = [{
+                    name: 'Jani',
+                    country: 'Norway'
+                },
+                {
+                    name: 'Hege',
+                    country: 'Sweden'
+                },
+                {
+                    name: 'Kai',
+                    country: 'Denmark'
+                }
+            ];
+        });
+    </script>
+
+</body>
+
+</html>
