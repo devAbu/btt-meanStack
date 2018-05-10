@@ -27,6 +27,17 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
 
+    <style>
+        input.ng-invalid {
+            background-color:red;
+        }
+        input.ng-valid {
+            background-color:green;
+        }
+        input.ng-pristine {
+            background-color:gold;
+        }
+    </style>
 
 </head>
 
@@ -71,70 +82,99 @@
                         alt="Card image cap">
                     <h3 class="card-title text-uppercase text-warning">Login</h3>
                 </div>
-                <ul class="list-group list-group-flush" style="margin-top:-20px;">
-                    <li class="list-group-item bg-info" style="background:none !important;">
-                        <input type="email" placeholder="you@example.com" class="form-control mb-2" style="width:350px !important;" id="emailLog"
-                            name="emailLog" required>
-                    </li>
-                    <!--
-                                <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
-                                    <input type="password" placeholder="*****" class="form-control" style="max-width:400px;" required id="pass">
-
-                                    <button type="button" class="btn btn-outline-warning" id="oko">
+                <form ng-app="loginApp" ng-controller="loginCtrl" name="loginForm" novalidate>
+                        <ul class="list-group list-group-flush" style="margin-top:-20px;">
+                            
+                            <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
+                                <input type="email" placeholder="you@example.com" ng-model="email" id="emailSign" name="emailSign" class="form-control " style="width:400px;"
+                                    required>
+                            </li>
+                            <span style="color:gold" class="offset-1" ng-show="loginForm.emailSign.$dirty && loginForm.emailSign.$invalid">
+                                <span ng-show="loginForm.emailSign.$error.required"> Please enter your email!!! </span>
+                                <span ng-show="loginForm.emailSign.$error.email">Please enter validated email!!!.</span>
+                            </span>
+                            <!--<li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
+                                <input type="password" placeholder="*****" class="form-control" style="max-width:400px;" required="">
+                            </li>-->
+                        </ul>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div style="margin-left:18px;">
+                                        <input type="{{text}}" placeholder="*****" ng-model="pass" class="form-control" style="width:400px !important;" required id="passSign" name="passSign">
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" id="eye" name="eye" ng-click="change()" class="btn btn-outline-warning" style="margin-left:-44px !important;">
                                         <i class="fas fa-eye"></i>
                                     </button>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="margin-top:-10px;">
+                            <ul class="list-group list-group-flush">
+                                    <li  class="list-group-item bg-info" style="background:none !important;">
+                                        <span style="color:gold" class="offset-1" ng-show="loginForm.passSign.$dirty && loginForm.passSign.$invalid">
+                                            <span ng-show="loginForm.passSign.$error.required"> Please enter password!!! </span>
+                                        </span>
+                                    </li>
+                                <li class="list-group-item bg-info" style="background:none !important;">
+                                    <a href="login.html" class="badge text-warning" style="text-decoration:none;">
+                                        <span style="font-size:13px;">Already has account?</span>
+                                    </a>
                                 </li>
-                            -->
-                </ul>
-                <table>
-                    <tr>
-                        <td>
-                            <div style="margin-left:20px;">
-                                <input type="password" placeholder="*****" class="form-control" style="width:350px !important;" required id="passLog" name="passLog">
-                            </div>
-                        </td>
-                        <td>
-                            <button type="button" id="eyeLog" name="eyeLog" class="btn btn-outline-warning" style="margin-left:-44px !important;">
-                                <i class="fas fa-eye"></i>
+                            </ul>
+                        </div>
+    
+                        <div class="card-body text-center" style="margin-left:100px !important;">
+                            <button type="submit" class="btn btn-warning text-white" ng-disabled=" loginForm.emailSign.$dirty && loginForm.emailSign.$invalid || loginForm.passSign.$dirty && loginForm.passSign.$invalid" id="signButton" name="signButton">Sign up for free
+                                <i class="fas fa-user-plus ml-2"></i>
                             </button>
-                        </td>
-                    </tr>
-                </table>
-                <div class="row no-gutters">
-                    <!--
-                                <div class="col-6">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item bg-info" style="background:none !important;">
-                                            <button type="button" class="btn btn-outline-warning">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            -->
-                    <div class="col-7">
-                        <a href="register.html" class="badge ml-3 text-warning" style="text-decoration:none;">
-                            <span style="font-size:13px;">No account?</span>
-                        </a>
-                    </div>
-                    <div class="col-5">
-                        <a href="#" class="badge ml-5 text-warning" style="text-decoration:none;">
-                            <span style="font-size:13px;">Forgot password?</span>
-                        </a>
-                    </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="card-body text-center">
-                    <button class="btn btn-warning text-white" id="logButton" name="logButton">Login
-                        <i class="fas fa-sign-in-alt ml-2"></i>
-                    </button>
-                </div>
+                <div class="alert mt-3 ml-3" id="alert" style="width:400px;"></div>
             </div>
-            <div class="alert mt-3 ml-3" id="alertLog" style="width:350px;"></div>
+            <div class="text-center text-warning" style="margin-left:-25px !important;">
+                <p style="font-size:20px; ">&copy; 2018 Abu</p>
+            </div>
         </div>
-        <div class="text-center text-warning" style="margin-left:-100px;">
-            <p style="font-size:20px;">&copy; 2018 Abu</p>
-        </div>
-    </div>
+
+    <script>
+            var app = angular.module('loginApp', []);
+            app.controller('loginCtrl', ['$scope', function($scope) {
+                $scope.email = "";
+                $scope.pass = "";
+                $scope.text = "password";
+                $scope.change = function() {
+                    if($scope.text == "password"){
+                       $scope.text = "text";
+                    } else {
+                        $scope.text = "password";
+                    }
+                };
+            }]);
+            app.directive('numberNo', function() {
+              return {
+                require: 'ngModel',
+                link: function (scope, element, attr, numCtrl) {
+                  function fromUser(text) {
+                    var transformedInput = text.replace(/[^A-Za-z ]/g, '');
+                    /* console.log(transformedInput); */
+                    if(transformedInput !== text) {
+                        /* ngModelCtrl.$setViewValue(transformedInput);
+                        ngModelCtrl.$render(); */
+                        numCtrl.$setValidity('num', false);
+                    }else{
+                        numCtrl.$setValidity('num', true);
+                    }
+                    return transformedInput;
+                  }
+                  numCtrl.$parsers.push(fromUser);
+                }
+              }; 
+            });
+        </script>
 
     <!-- prebacit u angular <script>
         $('#alertLog').slideUp();

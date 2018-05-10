@@ -27,6 +27,17 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
 
+    <style>
+        input.ng-invalid {
+            background-color:red;
+        }
+        input.ng-valid {
+            background-color:green;
+        }
+        input.ng-pristine {
+            background-color:gold;
+        }
+    </style>
 
 </head>
 
@@ -71,33 +82,37 @@
                         height="80" alt="Card image cap">
                     <h3 class="card-title text-uppercase text-warning" style="margin-left:100px !important;">Create free account</h3>
                 </div>
-                <form ng-app="loginApp" ng-controller="loginCtrl" name="loginForm" novalidate>
+                <form ng-app="signApp" ng-controller="signCtrl" name="signForm" novalidate>
                     <ul class="list-group list-group-flush" style="margin-top:-20px;">
                         <li class="list-group-item bg-info" style="border:none;  background:none !important;">
                             <input type="text" placeholder="First name..." number-no  ng-model="first" id="firstSign" name="firstSign" class="form-control mb-2" style="width:400px;"
                                 required>
                         </li>
-                        <span style="color:gold" class="offset-1 mb-3" ng-show="loginForm.firstSign.$dirty">
-                            <span ng-show="loginForm.firstSign.$error.required"> Please enter your first name!!! </span>
+                        <span style="color:gold" class="offset-1 mb-3" ng-show="signForm.firstSign.$dirty">
+                            <span ng-show="signForm.firstSign.$error.required"> Please enter your first name!!! </span>
                         </span>
-                        <span style="color:gold" class="offset-1 mb-3" ng-show="loginForm.firstSign.$invalid ">
+                        <span style="color:gold" class="offset-1 mb-3" ng-show="signForm.firstSign.$invalid ">
                             <!-- <span ng-show="myForm.myInput.$error.required"> Please enter your last name!!! </span> -->
-                            <span ng-show="loginForm.firstSign.$invalid"> Please don't use numbers</span>
+                            <span ng-show="signForm.firstSign.$invalid"> Please don't use numbers</span>
                         </span>
                         <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
-                            <input type="text" placeholder="Last name..." ng-model="last" id="lastSign" name="lastSign" class="form-control mb-2" style="width:400px;"
+                            <input type="text" placeholder="Last name..." numberTwo-no ng-model="last" id="lastSign" name="lastSign" class="form-control mb-2" style="width:400px;"
                                 required>
                         </li>
-                        <span style="color:gold" class="offset-1 mb-3" ng-show="loginForm.lastSign.$dirty && loginForm.lastSign.$invalid">
-                            <span ng-show="loginForm.lastSign.$error.required"> Please enter your last name!!! </span>
+                        <span style="color:gold" class="offset-1 mb-3" ng-show="signForm.lastSign.$dirty">
+                            <span ng-show="signForm.lastSign.$error.required"> Please enter your last name!!! </span>
+                        </span>
+                        <span style="color:gold" class="offset-1 mb-3" ng-show="signForm.lastSign.$invalid ">
+                            <!-- <span ng-show="myForm.myInput.$error.required"> Please enter your last name!!! </span> -->
+                            <span ng-show="signForm.lastSign.$invalid"> Please don't use numbers</span>
                         </span>
                         <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
                             <input type="email" placeholder="you@example.com" ng-model="email" id="emailSign" name="emailSign" class="form-control " style="width:400px;"
                                 required>
                         </li>
-                        <span style="color:gold" class="offset-1" ng-show="loginForm.emailSign.$dirty && loginForm.emailSign.$invalid">
-                            <span ng-show="loginForm.emailSign.$error.required"> Please enter your email!!! </span>
-                            <span ng-show="loginForm.emailSign.$error.email">Please enter validated email!!!.</span>
+                        <span style="color:gold" class="offset-1" ng-show="signForm.emailSign.$dirty && signForm.emailSign.$invalid">
+                            <span ng-show="signForm.emailSign.$error.required"> Please enter your email!!! </span>
+                            <span ng-show="signForm.emailSign.$error.email">Please enter validated email!!!.</span>
                         </span>
                         <!--<li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
                             <input type="password" placeholder="*****" class="form-control" style="max-width:400px;" required="">
@@ -107,11 +122,11 @@
                         <tr>
                             <td>
                                 <div style="margin-left:18px;">
-                                    <input type="password" placeholder="*****" ng-model="pass" class="form-control" style="width:400px !important;" required id="passSign" name="passSign">
+                                    <input type="{{text}}" placeholder="*****" ng-model="pass" class="form-control" style="width:400px !important;" required id="passSign" name="passSign">
                                 </div>
                             </td>
                             <td>
-                                <button type="button" id="eye" name="eye" class="btn btn-outline-warning" style="margin-left:-44px !important;">
+                                <button ng-click="change()" type="button" id="eye" name="eye" class="btn btn-outline-warning" style="margin-left:-44px !important;">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>
@@ -120,8 +135,8 @@
                     <div style="margin-top:-10px;">
                         <ul class="list-group list-group-flush">
                                 <li  class="list-group-item bg-info" style="background:none !important;">
-                                    <span style="color:gold" class="offset-1" ng-show="loginForm.passSign.$dirty && loginForm.passSign.$invalid">
-                                        <span ng-show="loginForm.passSign.$error.required"> Please enter password!!! </span>
+                                    <span style="color:gold" class="offset-1" ng-show="signForm.passSign.$dirty && signForm.passSign.$invalid">
+                                        <span ng-show="signForm.passSign.$error.required"> Please enter password!!! </span>
                                     </span>
                                 </li>
                             <li class="list-group-item bg-info" style="background:none !important;">
@@ -133,7 +148,7 @@
                     </div>
 
                     <div class="card-body text-center" style="margin-left:100px !important;">
-                        <button type="submit" class="btn btn-warning text-white" ng-disabled="loginForm.firstSign.$dirty && loginForm.firstSign.$invalid || loginForm.lastSign.$dirty && loginForm.lastSign.$invalid || loginForm.emailSign.$dirty && loginForm.emailSign.$invalid || loginForm.passSign.$dirty && loginForm.passSign.$invalid" id="signButton" name="signButton">Sign up for free
+                        <button type="submit" class="btn btn-warning text-white" ng-disabled="signForm.firstSign.$dirty && signForm.firstSign.$invalid || signForm.lastSign.$dirty && signForm.lastSign.$invalid || signForm.emailSign.$dirty && signForm.emailSign.$invalid || signForm.passSign.$dirty && signForm.passSign.$invalid" id="signButton" name="signButton">Sign up for free
                             <i class="fas fa-user-plus ml-2"></i>
                         </button>
                     </div>
@@ -147,14 +162,42 @@
     </div>
 
     <script>
-        var app = angular.module('loginApp', []);
-        app.controller('loginCtrl', function($scope) {
+        var app = angular.module('signApp', []);
+        app.controller('signCtrl', ['$scope', function($scope) {
             $scope.first = "";
             $scope.last = "";
             $scope.email = "";
             $scope.pass = "";
-        });
+            $scope.text = "password";
+            $scope.change = function() {
+                    if($scope.text == "text"){
+                       $scope.text = "password";
+                    } else {
+                        $scope.text = "text";
+                    }
+                };
+            }]);
         app.directive('numberNo', function() {
+          return {
+            require: 'ngModel',
+            link: function (scope, element, attr, numCtrl) {
+              function fromUser(text) {
+                var transformedInput = text.replace(/[^A-Za-z ]/g, '');
+                /* console.log(transformedInput); */
+                if(transformedInput !== text) {
+                    /* ngModelCtrl.$setViewValue(transformedInput);
+                    ngModelCtrl.$render(); */
+                    numCtrl.$setValidity('num', false);
+                }else{
+                    numCtrl.$setValidity('num', true);
+                }
+                return transformedInput;
+              }
+              numCtrl.$parsers.push(fromUser);
+            }
+          }; 
+        });
+        app.directive('numbertwoNo', function() {
           return {
             require: 'ngModel',
             link: function (scope, element, attr, numCtrl) {

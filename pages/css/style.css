@@ -93,6 +93,14 @@
     font-size: 20px;
 }
 
+.jumbotron8 {
+    background-image: url('../images/make.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
 #jumbotronFeedback {
     background-image: url('../images/feedback.jpg');
     background-size: cover;

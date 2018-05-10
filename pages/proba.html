@@ -167,14 +167,14 @@
     }); 
 </script>-->
 
-<form  name="myForm"  ng-app="myApp">
+<!-- <form  name="myForm"  ng-app="myApp">
         <input name="myInput" ng-model="myInput" required my-directive>
         <h1>{{myForm.myInput.$valid}}</h1>
         <span style="color:gold" class="offset-1 mb-3" ng-show=" myForm.myInput.$dirty">
                 <span ng-show="myForm.myInput.$error.required"> Please enter your last name!!! </span>
             </span>
             <span style="color:gold" class="offset-1 mb-3" ng-show="myForm.myInput.$invalid ">
-                    <!-- <span ng-show="myForm.myInput.$error.required"> Please enter your last name!!! </span> -->
+                    <!-- <span ng-show="myForm.myInput.$error.required"> Please enter your last name!!! </span> --
                     <span ng-show="myForm.myInput.$invalid"> Please don't use numbers</span>
                 </span>
         </form>
@@ -202,7 +202,27 @@
             }
           }; 
         });
-        </script>
+        </script> -->
+
+
+        <div ng-controller="myCtrl" ng-app="myApp">
+                <button ng-click="myFunc()">OK</button>
+                <input type="{{text}}">
+            </div>
+            
+            <script>
+            angular.module('myApp', [])
+            .controller('myCtrl', ['$scope', function($scope) {
+                $scope.text = "text";
+                $scope.myFunc = function() {
+                    if($scope.text == "text"){
+                       $scope.text = "password";
+                    } else {
+                        $scope.text = "text";
+                    }
+                };
+            }]);
+            </script>
         
 
 
