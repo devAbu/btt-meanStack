@@ -31,7 +31,7 @@
         });
     </script> -->
 
-    <div ng-app="myApp" ng-controller="placesCtrl">
+    <!-- <div ng-app="myApp" ng-controller="placesCtrl">
         <input type="text" ng-model="searchBox">
         <ul>
             <li ng-repeat="x in places | filter: searchBox">
@@ -62,8 +62,148 @@
                 }
             ];
         });
-    </script>
+    </script> -->
 
+    <!-- <section>
+            <form ng-app="feedbackApp" ng-controller="feedbackCtrl" name="feedbackForm">
+                <h2 class="display-4 text-center text-info mb-5 mt-4">Be free to contact us, we are here to please you.</h2>
+                <p class="text-center h2 text-primary mb-5">Tell us what you think!</p>
+                <div class="col-9 offset-3">
+                    <textarea cols="50" rows="10" class="form-control" required ng-model="textarea" style="max-width:550px;margin-left:50px;resize: none;" placeholder="Please write your opinion..." id="feedback" name="feedback"></textarea>
+                    <span style="color:red;" class="offset-1" ng-show="feedbackForm.feedback.$dirty && feedbackForm.feedback.$invalid">
+                        <span ng-show="feedbackForm.feedback.$error.required"> Please write your opinion!!! </span>
+                    </span>
+                </div>
+                <div class="col-lg-6 offset-5 ">
+                    <input type="submit" ng-disabled="feedbackForm.feedback.$dirty && feedbackForm.feedback.$invalid" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2" value="SEND"  />
+                </div>
+            </form>
+        </section>
+    
+        <script>
+            angular.module('feedbackApp', []).controller('feedbackCtrl', function($scope) {
+                $scope.textarea = "";
+            });
+        </script>  -->
+
+
+        <!-- <form ng-app="loginApp" ng-controller="loginCtrl" name="loginForm" novalidate>
+                <ul class="list-group list-group-flush" >
+                    <li class="list-group-item bg-info" style="border:none;  background:none !important;">
+                        <input type="text" placeholder="First name..." ng-model="first" id="firstSign" name="firstSign" class="form-control mb-2" style="width:400px;"
+                            required>
+                    </li>
+                    <span style="color:gold" class="offset-1 mb-3" ng-show="loginForm.firstSign.$dirty && loginForm.firstSign.$invalid">
+                        <span ng-show="loginForm.firstSign.$error.required"> Please enter your last name!!! </span>
+                    </span>
+                    <li class="list-group-item bg-info" style="border:none;  background:none !important;">
+                        <input type="text" placeholder="Last name..." ng-model="last" id="lastSign" name="lastSign" class="form-control mb-2" style="width:400px;"
+                            required>
+                    </li>
+                    <span style="color:gold" class="offset-1 mb-3" ng-show="loginForm.lastSign.$dirty && loginForm.lastSign.$invalid">
+                        <span ng-show="loginForm.lastSign.$error.required"> Please enter your last name!!! </span>
+                    </span>
+                    <li class="list-group-item bg-info" style="border:none; background:none !important;">
+                        <input type="email" placeholder="you@example.com" ng-model="email" id="emailSign" name="emailSign" class="form-control " style="width:400px;"
+                            required>
+                    </li>
+                    <span style="color:gold" class="offset-1" ng-show="loginForm.emailSign.$dirty && loginForm.emailSign.$invalid">
+                        <span ng-show="loginForm.emailSign.$error.required"> Please enter your email!!! </span>
+                        <span ng-show="loginForm.emailSign.$error.email">Please enter validated email!!!.</span>
+                    </span>
+                    <!--<li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
+                        <input type="password" placeholder="*****" class="form-control" style="max-width:400px;" required="">
+                    </li>--
+                </ul>
+                <table>
+                    <tr>
+                        <td>
+                            <div style="margin-left:18px;">
+                                <input type="password" placeholder="*****" ng-model="pass" class="form-control" style="width:400px !important;" required id="passSign" name="passSign">
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" id="eye" name="eye" class="btn btn-outline-warning" style="margin-left:-44px !important;">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+                <div style="margin-top:-10px;">
+                    <ul class="list-group list-group-flush">
+                            <li  class="list-group-item bg-info" style="background:none !important;">
+                                <span style="color:gold" class="offset-1" ng-show="loginForm.passSign.$dirty && loginForm.passSign.$invalid">
+                                    <span ng-show="loginForm.passSign.$error.required"> Please enter password!!! </span>
+                                </span>
+                            </li>
+                        <li class="list-group-item bg-info" style="background:none !important;">
+                            <a href="login.html" class="badge text-warning" style="text-decoration:none;">
+                                <span style="font-size:13px;">Already has account?</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-body text-center" style="margin-left:100px !important;">
+                    <button type="submit" class="btn btn-warning text-white" ng-disabled="loginForm.firstSign.$dirty && loginForm.firstSign.$invalid || loginForm.lastSign.$dirty && loginForm.lastSign.$invalid || loginForm.emailSign.$dirty && loginForm.emailSign.$invalid || loginForm.passSign.$dirty && loginForm.passSign.$invalid" id="signButton" name="signButton">Sign up for free
+                        <i class="fas fa-user-plus ml-2"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="alert mt-3 ml-3" id="alert" style="width:400px;"></div>
+    </div>
+    <div class="text-center text-warning" style="margin-left:-25px !important;">
+        <p style="font-size:20px; ">&copy; 2018 Abu</p>
+    </div>
+</div>
+
+<script>
+    angular.module('loginApp', []).controller('loginCtrl', function($scope) {
+        $scope.first = "";
+        $scope.last = "";
+        $scope.email = "";
+        $scope.pass = "";
+    }); 
+</script>-->
+
+<form  name="myForm"  ng-app="myApp">
+        <input name="myInput" ng-model="myInput" required my-directive>
+        <h1>{{myForm.myInput.$valid}}</h1>
+        <span style="color:gold" class="offset-1 mb-3" ng-show=" myForm.myInput.$dirty">
+                <span ng-show="myForm.myInput.$error.required"> Please enter your last name!!! </span>
+            </span>
+            <span style="color:gold" class="offset-1 mb-3" ng-show="myForm.myInput.$invalid ">
+                    <!-- <span ng-show="myForm.myInput.$error.required"> Please enter your last name!!! </span> -->
+                    <span ng-show="myForm.myInput.$invalid"> Please don't use numbers</span>
+                </span>
+        </form>
+        
+        
+        <script>
+        var app = angular.module('myApp', []);
+        app.directive('myDirective', function() {
+          return {
+            require: 'ngModel',
+            link: function (scope, element, attr, ngModelCtrl) {
+              function fromUser(text) {
+                var transformedInput = text.replace(/[^A-Za-z ]/g, '');
+                console.log(transformedInput);
+                if(transformedInput !== text) {
+                    /* ngModelCtrl.$setViewValue(transformedInput);
+                    ngModelCtrl.$render(); */
+                    ngModelCtrl.$setValidity('charE', false);
+                }else{
+                    ngModelCtrl.$setValidity('charE', true);
+                }
+                return transformedInput;
+              }
+              ngModelCtrl.$parsers.push(fromUser);
+            }
+          }; 
+        });
+        </script>
+        
 
 
 
