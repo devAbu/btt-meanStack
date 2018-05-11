@@ -25,17 +25,19 @@
     <!--provjeriti-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
     <style>
         input.ng-invalid {
-            background-color:red;
+            background-color: red;
         }
+
         input.ng-valid {
-            background-color:green;
+            background-color: green;
         }
+
         input.ng-pristine {
-            background-color:gold;
+            background-color: gold;
         }
     </style>
 
@@ -85,8 +87,8 @@
                 <form ng-app="signApp" ng-controller="signCtrl" name="signForm" novalidate>
                     <ul class="list-group list-group-flush" style="margin-top:-20px;">
                         <li class="list-group-item bg-info" style="border:none;  background:none !important;">
-                            <input type="text" placeholder="First name..." number-no  ng-model="first" id="firstSign" name="firstSign" class="form-control mb-2" style="width:400px;"
-                                required>
+                            <input type="text" placeholder="First name..." number-no ng-model="first" id="firstSign" name="firstSign" class="form-control mb-2"
+                                style="width:400px;" required>
                         </li>
                         <span style="color:gold" class="offset-1 mb-3" ng-show="signForm.firstSign.$dirty">
                             <span ng-show="signForm.firstSign.$error.required"> Please enter your first name!!! </span>
@@ -96,8 +98,8 @@
                             <span ng-show="signForm.firstSign.$invalid"> Please don't use numbers</span>
                         </span>
                         <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
-                            <input type="text" placeholder="Last name..." numberTwo-no ng-model="last" id="lastSign" name="lastSign" class="form-control mb-2" style="width:400px;"
-                                required>
+                            <input type="text" placeholder="Last name..." numberTwo-no ng-model="last" id="lastSign" name="lastSign" class="form-control mb-2"
+                                style="width:400px;" required>
                         </li>
                         <span style="color:gold" class="offset-1 mb-3" ng-show="signForm.lastSign.$dirty">
                             <span ng-show="signForm.lastSign.$error.required"> Please enter your last name!!! </span>
@@ -107,8 +109,8 @@
                             <span ng-show="signForm.lastSign.$invalid"> Please don't use numbers</span>
                         </span>
                         <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
-                            <input type="email" placeholder="you@example.com" ng-model="email" id="emailSign" name="emailSign" class="form-control " style="width:400px;"
-                                required>
+                            <input type="email" placeholder="you@example.com" ng-model="email" id="emailSign" name="emailSign" class="form-control "
+                                style="width:400px;" required>
                         </li>
                         <span style="color:gold" class="offset-1" ng-show="signForm.emailSign.$dirty && signForm.emailSign.$invalid">
                             <span ng-show="signForm.emailSign.$error.required"> Please enter your email!!! </span>
@@ -122,7 +124,8 @@
                         <tr>
                             <td>
                                 <div style="margin-left:18px;">
-                                    <input type="{{text}}" placeholder="*****" ng-model="pass" class="form-control" style="width:400px !important;" required id="passSign" name="passSign">
+                                    <input type="{{text}}" placeholder="*****" ng-model="pass" class="form-control" style="width:400px !important;" required
+                                        id="passSign" name="passSign">
                                 </div>
                             </td>
                             <td>
@@ -134,11 +137,11 @@
                     </table>
                     <div style="margin-top:-10px;">
                         <ul class="list-group list-group-flush">
-                                <li  class="list-group-item bg-info" style="background:none !important;">
-                                    <span style="color:gold" class="offset-1" ng-show="signForm.passSign.$dirty && signForm.passSign.$invalid">
-                                        <span ng-show="signForm.passSign.$error.required"> Please enter password!!! </span>
-                                    </span>
-                                </li>
+                            <li class="list-group-item bg-info" style="background:none !important;">
+                                <span style="color:gold" class="offset-1" ng-show="signForm.passSign.$dirty && signForm.passSign.$invalid">
+                                    <span ng-show="signForm.passSign.$error.required"> Please enter password!!! </span>
+                                </span>
+                            </li>
                             <li class="list-group-item bg-info" style="background:none !important;">
                                 <a href="login.html" class="badge text-warning" style="text-decoration:none;">
                                     <span style="font-size:13px;">Already has account?</span>
@@ -148,7 +151,8 @@
                     </div>
 
                     <div class="card-body text-center" style="margin-left:100px !important;">
-                        <button type="submit" class="btn btn-warning text-white" ng-disabled="signForm.firstSign.$dirty && signForm.firstSign.$invalid || signForm.lastSign.$dirty && signForm.lastSign.$invalid || signForm.emailSign.$dirty && signForm.emailSign.$invalid || signForm.passSign.$dirty && signForm.passSign.$invalid" id="signButton" name="signButton">Sign up for free
+                        <button type="submit" class="btn btn-warning text-white" ng-disabled="signForm.firstSign.$dirty && signForm.firstSign.$invalid || signForm.lastSign.$dirty && signForm.lastSign.$invalid || signForm.emailSign.$dirty && signForm.emailSign.$invalid || signForm.passSign.$dirty && signForm.passSign.$invalid"
+                            id="signButton" name="signButton">Sign up for free
                             <i class="fas fa-user-plus ml-2"></i>
                         </button>
                     </div>
@@ -163,59 +167,59 @@
 
     <script>
         var app = angular.module('signApp', []);
-        app.controller('signCtrl', ['$scope', function($scope) {
+        app.controller('signCtrl', ['$scope', function ($scope) {
             $scope.first = "";
             $scope.last = "";
             $scope.email = "";
             $scope.pass = "";
             $scope.text = "password";
-            $scope.change = function() {
-                    if($scope.text == "text"){
-                       $scope.text = "password";
-                    } else {
-                        $scope.text = "text";
+            $scope.change = function () {
+                if ($scope.text == "text") {
+                    $scope.text = "password";
+                } else {
+                    $scope.text = "text";
+                }
+            };
+        }]);
+        app.directive('numberNo', function () {
+            return {
+                require: 'ngModel',
+                link: function (scope, element, attr, numCtrl) {
+                    function fromUser(text) {
+                        var transformedInput = text.replace(/[^A-Za-z ]/g, '');
+                        /* console.log(transformedInput); */
+                        if (transformedInput !== text) {
+                            /* ngModelCtrl.$setViewValue(transformedInput);
+                            ngModelCtrl.$render(); */
+                            numCtrl.$setValidity('num', false);
+                        } else {
+                            numCtrl.$setValidity('num', true);
+                        }
+                        return transformedInput;
                     }
-                };
-            }]);
-        app.directive('numberNo', function() {
-          return {
-            require: 'ngModel',
-            link: function (scope, element, attr, numCtrl) {
-              function fromUser(text) {
-                var transformedInput = text.replace(/[^A-Za-z ]/g, '');
-                /* console.log(transformedInput); */
-                if(transformedInput !== text) {
-                    /* ngModelCtrl.$setViewValue(transformedInput);
-                    ngModelCtrl.$render(); */
-                    numCtrl.$setValidity('num', false);
-                }else{
-                    numCtrl.$setValidity('num', true);
+                    numCtrl.$parsers.push(fromUser);
                 }
-                return transformedInput;
-              }
-              numCtrl.$parsers.push(fromUser);
-            }
-          }; 
+            };
         });
-        app.directive('numbertwoNo', function() {
-          return {
-            require: 'ngModel',
-            link: function (scope, element, attr, numCtrl) {
-              function fromUser(text) {
-                var transformedInput = text.replace(/[^A-Za-z ]/g, '');
-                /* console.log(transformedInput); */
-                if(transformedInput !== text) {
-                    /* ngModelCtrl.$setViewValue(transformedInput);
-                    ngModelCtrl.$render(); */
-                    numCtrl.$setValidity('num', false);
-                }else{
-                    numCtrl.$setValidity('num', true);
+        app.directive('numbertwoNo', function () {
+            return {
+                require: 'ngModel',
+                link: function (scope, element, attr, numCtrl) {
+                    function fromUser(text) {
+                        var transformedInput = text.replace(/[^A-Za-z ]/g, '');
+                        /* console.log(transformedInput); */
+                        if (transformedInput !== text) {
+                            /* ngModelCtrl.$setViewValue(transformedInput);
+                            ngModelCtrl.$render(); */
+                            numCtrl.$setValidity('num', false);
+                        } else {
+                            numCtrl.$setValidity('num', true);
+                        }
+                        return transformedInput;
+                    }
+                    numCtrl.$parsers.push(fromUser);
                 }
-                return transformedInput;
-              }
-              numCtrl.$parsers.push(fromUser);
-            }
-          }; 
+            };
         });
     </script>
 
