@@ -3,14 +3,18 @@ var mongoClient = require('mongodb').MongoClient
 var assert = require('assert')
 var objectId = require('mongodb').ObjectID
 var router = express.Router()
+var routes = require('routers/index')
 
 var url = 'mongodb://localhost:27017/testdb'
 
 var app = express()
 
+app.use('/', routes)
+/* 
 app.use(express.static(__dirname + '/pages'))
+ */
 
-app.get('/getData', function (req, res, next) {
+/* app.get('/getData', function (req, res, next) {
   var resultArray = []
   mongoClient.connect(url, function (err, db) {
     var cursor = db.collection('testPage').find()
@@ -28,6 +32,7 @@ app.get('/getData', function (req, res, next) {
 
 router.post('/insert', function (req, res, next) {
   var item = {
+    id: 1,
     feedback: req.body.feedback
   }
 
@@ -46,7 +51,7 @@ router.post('/insert', function (req, res, next) {
 app.post('/update', function (req, res, next) {})
 
 app.post('/delete', function (req, res, next) {})
-
+ */
 app.listen(3000, function () {
   console.log('Running on port 3000')
 })
