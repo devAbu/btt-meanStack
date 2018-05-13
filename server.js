@@ -31,11 +31,11 @@ app.get('/getData', function (req, res, next) {
   })
 })
 
-app.post('/insert', urlencodedParser, function (req, res, next) {
-  res.writeHead(200, {'Content-Type': 'text/plain'})
-  var params = url.parse(req.url, true).query
+app.post('/insertFeedback', urlencodedParser, function (req, res, next) {
+  /* res.writeHead(200, {'Content-Type': 'text/plain'})
+  var params = url.parse(req.url, true).query */
   var item = {
-    feedback: params.feedback
+    feedback: req.body.feedback
   /* feedback: 'test',
   test: 'testRout' */
   }
@@ -43,8 +43,8 @@ app.post('/insert', urlencodedParser, function (req, res, next) {
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw err
 
-    var db = client.db('testdb')
-    db.collection('testTable').insertOne(item, function (err, result) {
+    var db = client.db('btt')
+    db.collection('feedback').insertOne(item, function (err, result) {
       /* assert.equal(null, err) */
       if (err) throw err
       console.log('item inserted')
