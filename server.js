@@ -1,6 +1,8 @@
 var express = require('express')
 var mongoClient = require('mongodb').MongoClient
 var assert = require('assert')
+var objectId = require('mongodb').ObjectID
+var router = express.Router()
 
 var url = 'mongodb://localhost:27017/testdb'
 
@@ -24,12 +26,13 @@ app.get('/getData', function (req, res, next) {
   })
 })
 
-app.post('/pages/insert', function (req, res, next) {
+router.post('/pages/insert', function (req, res, next) {
   var item = {
     feedback: req.body.feedback
   }
 
   mongoClient.connect(url, function (err, db) {
+    assert.equal(null, err)
     db.collection('testPage').insertOne(item, function (err, result) {
       assert.equal(null, err)
       console.log('item inserted')
