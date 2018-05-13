@@ -26,7 +26,7 @@ app.get('/getData', function (req, res, next) {
   })
 })
 
-router.post('/pages/insert', function (req, res, next) {
+router.post('/insert', function (req, res, next) {
   var item = {
     feedback: req.body.feedback
   }
