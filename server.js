@@ -29,7 +29,7 @@ app.get('/getData', function (req, res, next) {
 
 app.post('/insert', function (req, res, next) {
   var item = {
-    feedback: feedback
+    feedback: res.body.feedback
   /* feedback: 'test',
   test: 'testRout' */
   }
