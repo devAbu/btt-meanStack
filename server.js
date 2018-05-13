@@ -26,7 +26,7 @@ app.get('/getData', function (req, res, next) {
 
 app.post('/insert', function (req, res, next) {
   var item = {
-    title: req.body.feedback
+    feedback: req.body.feedback
   }
 
   mongoClient.connect(url, function (err, db) {
