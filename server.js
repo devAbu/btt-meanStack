@@ -1,10 +1,11 @@
 var express = require('express')
 var mongoClient = require('mongodb').MongoClient
+var bodyParser = require('body-parser')
 /* var assert = require('assert') 
 var objectId = require('mongodb').ObjectID
 var router = express.Router()*/
 
-var url = 'mongodb://localhost:27017/testdb'
+/* var url = 'mongodb://localhost:27017/testdb' */
 
 var app = express()
 
@@ -28,18 +29,24 @@ app.get('/getData', function (req, res, next) {
 
 app.post('/insert', function (req, res, next) {
   var item = {
-    feedback: req.body.feedback
+    feedback: feedback
+  /* feedback: 'test',
+  test: 'testRout' */
   }
 
-  mongoClient.connect(url, function (err, db) {
-    db.collection('testPage').insertOne(item, function (err, result) {
+  mongoClient.connect('mongodb://localhost:27017', (err, client) => {
+    if (err) throw err
+
+    var db = client.db('testdb')
+    db.collection('testTable').insertOne(item, function (err, result) {
       /* assert.equal(null, err) */
+      if (err) throw err
       console.log('item inserted')
-      db.close()
+      client.close()
     })
   })
 
-  req.redirect('/')
+  res.redirect('/feedback.html')
 })
 
 app.post('/update', function (req, res, next) {})
