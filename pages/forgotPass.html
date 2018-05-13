@@ -84,16 +84,16 @@
                         alt="Card image cap">
                     <h3 class="card-title text-uppercase text-warning">Login</h3>
                 </div>
-                <form ng-app="loginApp" ng-controller="loginCtrl" name="loginForm" novalidate>
+                <form action="/update" method="post" ng-app="changeApp" ng-controller="changeCtrl" name="changeForm" novalidate>
                     <ul class="list-group list-group-flush" style="margin-top:-20px;">
 
                         <li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
                             <input type="email" placeholder="you@example.com" ng-model="email" id="emailSign" name="emailSign" class="form-control "
                                 style="width:400px;" required>
                         </li>
-                        <span style="color:gold" class="offset-1" ng-show="loginForm.emailSign.$dirty && loginForm.emailSign.$invalid">
-                            <span ng-show="loginForm.emailSign.$error.required"> Please enter your email!!! </span>
-                            <span ng-show="loginForm.emailSign.$error.email">Please enter validated email!!!.</span>
+                        <span style="color:gold" class="offset-1" ng-show="changeForm.emailSign.$dirty && changeForm.emailSign.$invalid">
+                            <span ng-show="changeForm.emailSign.$error.required"> Please enter your email!!! </span>
+                            <span ng-show="changeForm.emailSign.$error.email">Please enter validated email!!!.</span>
                         </span>
                         <!--<li class="list-group-item bg-info" style="border:none; margin-top:-20px; background:none !important;">
                                 <input type="password" placeholder="*****" class="form-control" style="max-width:400px;" required="">
@@ -104,7 +104,7 @@
                             <td>
                                 <div style="margin-left:18px;">
                                     <input type="{{text}}" placeholder="*****" ng-model="pass" class="form-control" style="width:400px !important;" required
-                                        id="passSign" name="passSign">
+                                        id="passNew" name="passNew">
                                 </div>
                             </td>
                             <td>
@@ -117,24 +117,16 @@
                     <div style="margin-top:-10px;">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item bg-info" style="background:none !important;">
-                                <span style="color:gold" class="offset-1" ng-show="loginForm.passSign.$dirty && loginForm.passSign.$invalid">
-                                    <span ng-show="loginForm.passSign.$error.required"> Please enter password!!! </span>
+                                <span style="color:gold" class="offset-1" ng-show="changeForm.passNew.$dirty && changeForm.passNew.$invalid">
+                                    <span ng-show="changeForm.passNew.$error.required"> Please enter password!!! </span>
                                 </span>
-                            </li>
-                            <li class="list-group-item bg-info" style="background:none !important;">
-                                <a href="forgotPass.html" class="badge text-danger" style="text-decoration:none;">
-                                    <span style="font-size:13px;">Forgot password?</span>
-                                </a>
-                                <a href="register.html" class="badge text-warning" style="text-decoration:none;">
-                                    <span style="font-size:13px;">No account?</span>
-                                </a>
-                            </li>
+                            </li>                        
                         </ul>
                     </div>
 
                     <div class="card-body text-center" style="margin-left:100px !important;">
-                        <button type="submit" class="btn btn-warning text-white" ng-disabled=" loginForm.emailSign.$dirty && loginForm.emailSign.$invalid || loginForm.passSign.$dirty && loginForm.passSign.$invalid"
-                            id="signButton" name="signButton">Sign up for free
+                        <button type="submit" class="btn btn-warning text-white" ng-disabled=" changeForm.emailSign.$dirty && changeForm.emailSign.$invalid || changeForm.passNew.$dirty && changeForm.passNew.$invalid"
+                            id="signButton" name="signButton">Change Pass
                             <i class="fas fa-user-plus ml-2"></i>
                         </button>
                     </div>
@@ -148,8 +140,8 @@
     </div>
 
     <script>
-        var app = angular.module('loginApp', []);
-        app.controller('loginCtrl', ['$scope', function ($scope) {
+        var app = angular.module('changeApp', []);
+        app.controller('changeCtrl', ['$scope', function ($scope) {
             $scope.email = "";
             $scope.pass = "";
             $scope.text = "password";
