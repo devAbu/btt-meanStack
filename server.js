@@ -1,6 +1,8 @@
 var express = require('express')
 var mongoClient = require('mongodb').MongoClient
 var bodyParser = require('body-parser')
+var http = require('http')
+var url = require('url')
 /* var assert = require('assert') 
 var objectId = require('mongodb').ObjectID
 var router = express.Router()*/
@@ -8,6 +10,8 @@ var router = express.Router()*/
 /* var url = 'mongodb://localhost:27017/testdb' */
 
 var app = express()
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(express.static(__dirname + '/pages'))
 
@@ -27,9 +31,11 @@ app.get('/getData', function (req, res, next) {
   })
 })
 
-app.post('/insert', function (req, res, next) {
+app.post('/insert', urlencodedParser, function (req, res, next) {
+  res.writeHead(200, {'Content-Type': 'text/plain'})
+  var params = url.parse(req.url, true).query
   var item = {
-    feedback: res.body.feedback
+    feedback: params.feedback
   /* feedback: 'test',
   test: 'testRout' */
   }
