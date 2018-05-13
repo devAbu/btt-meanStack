@@ -1,23 +1,19 @@
 var express = require('express')
 var mongoClient = require('mongodb').MongoClient
-var assert = require('assert')
+/* var assert = require('assert') 
 var objectId = require('mongodb').ObjectID
-var router = express.Router()
-var routes = require('routers/index')
+var router = express.Router()*/
 
 var url = 'mongodb://localhost:27017/testdb'
 
 var app = express()
 
-app.use('/', routes)
-/* 
 app.use(express.static(__dirname + '/pages'))
- */
 
-/* app.get('/getData', function (req, res, next) {
+app.get('/getData', function (req, res, next) {
   var resultArray = []
   mongoClient.connect(url, function (err, db) {
-    var cursor = db.collection('testPage').find()
+    var cursor = db.collection('testdb').find()
     cursor.forEach(function (doc, err) {
       resultArray.push(doc)
       assert.equal(null, err)
@@ -30,28 +26,26 @@ app.use(express.static(__dirname + '/pages'))
   })
 })
 
-router.post('/insert', function (req, res, next) {
+app.post('/insert', function (req, res, next) {
   var item = {
-    id: 1,
     feedback: req.body.feedback
   }
 
   mongoClient.connect(url, function (err, db) {
-    assert.equal(null, err)
     db.collection('testPage').insertOne(item, function (err, result) {
-      assert.equal(null, err)
+      /* assert.equal(null, err) */
       console.log('item inserted')
       db.close()
     })
   })
 
-  req.redirect('/pages/feedback.html')
+  req.redirect('/')
 })
 
 app.post('/update', function (req, res, next) {})
 
 app.post('/delete', function (req, res, next) {})
- */
+
 app.listen(3000, function () {
   console.log('Running on port 3000')
 })
