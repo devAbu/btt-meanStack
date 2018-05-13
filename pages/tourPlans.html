@@ -272,6 +272,15 @@
                     </button>
                 </div>
             </div>
+            <a href="/getData">LOAD DATA</a>
+    <div>
+        {{# each items }}
+            <article class="item">
+                <div>Title: {{ this.feedback }}</div>
+                <div>Content: {{ this.test }}</div>
+            </article>
+        {{/each}}
+    </div>
             <script>
                 angular.module('myApp', []).controller('placesCtrl', function ($scope, $log, $window) {
                     //iz baze podatke povuc

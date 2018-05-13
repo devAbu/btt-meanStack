@@ -369,12 +369,12 @@
     </section>
 
     <section>
-        <form ng-app="makeApp" ng-controller="makeCtrl" name="makeForm" novalidate>
+        <form action="/insertRequest" method="post" ng-app="makeApp" ng-controller="makeCtrl" name="makeForm" novalidate>
             <div class="row">
                 <div class="offset-1 col-3">
                     <h4 class="text-success">City:</h4>
 
-                    <input class="w3-check mr-1" id="sarajevo" ng-model="igman" name="sarajevo" type="checkbox" ng-click="check($event)">Igma
+                    <input class="w3-check mr-1" id="igman" ng-model="igman" name="igman" type="checkbox" ng-click="check($event)">Igma
                     <!-- onclick="price()" -->
                     <input class="w3-check mr-1" id="mostar" ng-click="check2($event)" name="mostar" type="checkbox">Mostar
                     <!-- onclick="price()" -->
@@ -387,7 +387,7 @@
                     <!-- onclick="price()" -->
                     <input class="w3-check mr-1" id="trebevic" ng-click="check6($event)" name="trebevic" type="checkbox">Trebevic
                     <!-- onclick="price()" -->
-                    <input class="w3-check mr-1" ng-click="check7($event)" id="igman" name="igman" type="checkbox">Sarajevo
+                    <input class="w3-check mr-1" ng-click="check7($event)" id="srajevo" name="sarajevo" type="checkbox">Sarajevo
                     <!-- onclick="price()" -->
                     <br />
                     <input class="w3-check mr-1 mt-1" ng-click="check8($event)" id="jahorina" name="jahorina" type="checkbox">Jahorina
@@ -436,7 +436,7 @@
                             </div>
                         </div>
                         <div class="col-12 mt-4">
-                            <button class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
+                            <button type="submit" class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
                         </div>
                     </div>
                 </div>
@@ -470,9 +470,9 @@
                 <div class="col-3 offset-1 mt-4">
                     <h4 class="text-success">Interpreter:</h4>
 
-                    <input type="radio" id="yes" ng-click="check13($event)" name="interpreter" />Yes
+                    <input type="checkbox" class="w3-check mr-1" id="yes" ng-click="check13($event)" name="yes" />Yes
                     <!-- onclick="price()" -->
-                    <input type="radio" id="no" ng-click="check14($event)" name="interpreter" />No
+                    <input type="checkbox" class="w3-check mr-1" id="no" ng-click="check14($event)" name="no" />No
                     <!-- onclick="price()" -->
                 </div>
 

@@ -84,7 +84,7 @@
                         height="80" alt="Card image cap">
                     <h3 class="card-title text-uppercase text-warning" style="margin-left:100px !important;">Create free account</h3>
                 </div>
-                <form ng-app="signApp" ng-controller="signCtrl" name="signForm" novalidate>
+                <form action="/insertRegister" method="post" ng-app="signApp" ng-controller="signCtrl" name="signForm" novalidate>
                     <ul class="list-group list-group-flush" style="margin-top:-20px;">
                         <li class="list-group-item bg-info" style="border:none;  background:none !important;">
                             <input type="text" placeholder="First name..." number-no ng-model="first" id="firstSign" name="firstSign" class="form-control mb-2"
