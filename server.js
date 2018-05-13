@@ -40,6 +40,73 @@ app.get('/getData', urlencodedParser, function (req, res, next) {
 
 })
 
+app.post('/login', urlencodedParser, function(req, res, next) {
+  var item = {
+    emailLog : req.body.emailLog,
+    passLog : req.body.passLog
+  }
+  
+  var findMail = req.body.emailLog
+  var findPass = req.body.passLog
+
+  mongoClient.connect('mongodb://localhost:27017', (err, client) => {
+    if (err) throw err
+
+    var db = client.db('btt')
+    
+     /* db.collection('register').insertOne(item, function (err, result) {
+       //assert.equal(null, err) 
+      if (err) throw err
+      console.log('item inserted')
+      client.close()
+    })  */
+
+    
+     db.collection('register').find({emailLog: findMail}).toArray(function (err, result) {
+      if (err) {
+        throw err
+      }
+        console.log(result)
+        if(result.length == 0) {
+          return res.redirect('/login.html')
+        } else {
+
+        
+        //return res.redirect('/login.html')
+    
+      //console.log(result[].emailLog)
+      //console.log('item inserted')
+         db.collection('register').find({passLog: findPass}).toArray(function(err, result) {
+          if(err) {
+            throw err
+          } else {
+            console.log(result)            
+            
+          }
+          if(result.length == 0){
+            return res.redirect('/login.html');
+          } else {
+            db.collection('login').insertOne(item, function (err, result) {
+              /* assert.equal(null, err) */
+              if (err) throw err
+              console.log('item inserted')
+              client.close()
+            })
+            return res.redirect('/index.html');
+
+          }
+        
+          
+          //return res.redirect('/index.html');
+        })
+      } 
+      
+      
+   }) 
+  })
+  //res.redirect('/login.html')
+})
+
 app.post('/insertFeedback', urlencodedParser, function (req, res, next) {
   /* res.writeHead(200, {'Content-Type': 'text/plain'})
   var params = url.parse(req.url, true).query */
