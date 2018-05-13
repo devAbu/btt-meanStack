@@ -104,7 +104,7 @@
                             <td>
                                 <div style="margin-left:18px;">
                                     <input type="{{text}}" placeholder="*****" ng-model="pass" class="form-control" style="width:400px !important;" required
-                                        id="passNew" name="passNew">
+                                        id="passSign" name="passSign">
                                 </div>
                             </td>
                             <td>
@@ -117,15 +117,15 @@
                     <div style="margin-top:-10px;">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item bg-info" style="background:none !important;">
-                                <span style="color:gold" class="offset-1" ng-show="changeForm.passNew.$dirty && changeForm.passNew.$invalid">
-                                    <span ng-show="changeForm.passNew.$error.required"> Please enter password!!! </span>
+                                <span style="color:gold" class="offset-1" ng-show="changeForm.passSign.$dirty && changeForm.passSign.$invalid">
+                                    <span ng-show="changeForm.passSign.$error.required"> Please enter password!!! </span>
                                 </span>
                             </li>                        
                         </ul>
                     </div>
 
                     <div class="card-body text-center" style="margin-left:100px !important;">
-                        <button type="submit" class="btn btn-warning text-white" ng-disabled=" changeForm.emailSign.$dirty && changeForm.emailSign.$invalid || changeForm.passNew.$dirty && changeForm.passNew.$invalid"
+                        <button type="submit" class="btn btn-warning text-white" ng-disabled=" changeForm.emailSign.$dirty && changeForm.emailSign.$invalid || changeForm.passSign.$dirty && changeForm.passSign.$invalid"
                             id="signButton" name="signButton">Change Pass
                             <i class="fas fa-user-plus ml-2"></i>
                         </button>
@@ -153,16 +153,16 @@
                 }
             };
         }]);
-        app.directive('numberNo', function () {
+        /* app.directive('numberNo', function () {
             return {
                 require: 'ngModel',
                 link: function (scope, element, attr, numCtrl) {
                     function fromUser(text) {
                         var transformedInput = text.replace(/[^A-Za-z ]/g, '');
-                        /* console.log(transformedInput); */
+                        /* console.log(transformedInput); 
                         if (transformedInput !== text) {
                             /* ngModelCtrl.$setViewValue(transformedInput);
-                            ngModelCtrl.$render(); */
+                            ngModelCtrl.$render(); 
                             numCtrl.$setValidity('num', false);
                         } else {
                             numCtrl.$setValidity('num', true);
@@ -172,7 +172,7 @@
                     numCtrl.$parsers.push(fromUser);
                 }
             };
-        });
+        }); */
     </script>
 
     <!-- prebacit u angular <script>

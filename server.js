@@ -133,27 +133,31 @@ app.post('/insertRequest', urlencodedParser, function (req, res, next) {
 
 
 app.post('/update', urlencodedParser, function (req, res, next) {
-  var item = 
+  var item = {
     /* firstSign: req.body.firstSign,
     lastSign: req.body.lastSign,
     emailSign: req.body.emailSign,
     passSign: req.body.passSign */
-     req.body.passNew
+    passSign: req.body.passSign
 
     /* feedback: 'test',
     test: 'testRout' */
-  
 
-  var set = 
-     req.body.emailSign
-  
+  }
+
+  var set =
+    req.body.emailSign
+
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw err
     var db = client.db('btt')
-    db.collection('login').updateOne({"passSign": set}, {$set: item}, function (err, result) {
+    db.collection('login').updateOne({
+      "email": set
+    }, {
+      $set: item
+    }, function (err, result) {
       /* assert.equal(null, err) */
       console.log(set)
-      console.log(req.body.emailSign)
       console.log(item)
       if (err) throw err
       console.log('item inserted')
