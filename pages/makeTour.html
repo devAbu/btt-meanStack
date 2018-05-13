@@ -35,7 +35,7 @@
 
 
     <nav class="navbar bg-primary navbar-dark navbar-expand-md fixed-top" style="opacity:0.7; font-size:18px;">
-        <a href="index.php" class="navbar-brand">
+        <a href="index.html" class="navbar-brand">
             <img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" />
             <span class="h4">BTT</span>
         </a>
@@ -46,19 +46,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" id="navScrollspy">
                 <li class="nav-item">
-                    <a href="index.php" class="nav-link link ">
+                    <a href="index.html" class="nav-link link ">
                         <i class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="aboutUs.php" class="nav-link link">
+                    <a href="aboutUs.html" class="nav-link link">
                         <i class="fas fa-users mr-2"></i>About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="tourPlans.php" class="nav-link link active">
+                    <a href="tourPlans.html" class="nav-link link active">
                         <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
                 <li class="nav-item">
-                    <a href="feedback.php" class="nav-link link">
+                    <a href="feedback.html" class="nav-link link">
                         <i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
             </ul>
@@ -403,16 +403,18 @@
                             <h4 class="text-success">Budget:</h4>
                             <div class="input-group">
                                 <span class="input-group-addon">$</span>
-                                <input type="number" id="budget" name="budget" ng-change="check17()" ng-model="budget" min="0" step="10" max="8999" class="form-control currency" />
+                                <input type="number" id="budget" name="budget" ng-change="check17()" ng-model="budget" min="0" step="10" max="8999" class="form-control currency"
+                                />
                                 <!--  onchange="price()" -->
                             </div>
                         </div>
                         <div class="col-12">
                             <h4 class="text-success">No. of people:</h4>
 
-                            <input type="number" id="people" ng-change="check16()" name="people" ng-model="people" min="0" step="1" max="15" class="form-control"  required />
+                            <input type="number" id="people" ng-change="check16()" name="people" ng-model="people" min="0" step="1" max="15" class="form-control"
+                                required />
                             <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.people.$dirty">
-                                <span ng-show="makeForm.people.$error.required"> Please enter the length of your tour!!!  
+                                <span ng-show="makeForm.people.$error.required"> Please enter the length of your tour!!!
                                 </span>
                             </span>
                             <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.people.$invalid ">
@@ -443,8 +445,8 @@
 
                     <input type="number" ng-change="check15()" id="length" name="length" ng-model="tour" min="0" max="10" step="1" class="form-control"
                         required/>
-                <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.length.$dirty">
-                        <span ng-show="makeForm.length.$error.required"> Please enter the length of your tour!!!  
+                    <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.length.$dirty">
+                        <span ng-show="makeForm.length.$error.required"> Please enter the length of your tour!!!
                         </span>
                     </span>
                     <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.length.$invalid ">
@@ -720,7 +722,6 @@
                     $scope.price += 300;
                 }
 
-
             }
             $scope.check16 = function check16() {
                 console.log($scope.people);
@@ -775,12 +776,14 @@
             $scope.check17 = function check17() {
                 console.log($scope.budget);
                 console.log($scope.price);
-                if($scope.budget < $scope.price) {
+                if ($scope.budget < $scope.price) {
                     console.log('no');
                 }
             }
         })
     </script>
+
+
 
     <footer class="bg-secondary ">
         <div class="row no-gutters ">
