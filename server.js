@@ -24,7 +24,7 @@ app.get('/getData', function (req, res, next) {
   })
 })
 
-app.post('/insert', function (req, res, next) {
+app.post('/pages/insert', function (req, res, next) {
   var item = {
     feedback: req.body.feedback
   }
