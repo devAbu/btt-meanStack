@@ -17,18 +17,24 @@ app.use(express.static(__dirname + '/pages'))
 
 app.get('/getData', urlencodedParser, function (req, res, next) {
   var resultArray = []
-  mongoClient.connect(url, function (err, db) {
+  mongoClient.connect('mongodb://localhost:27017', (err, client) => {
+      if (err) throw err
+      var db = client.db('btt')
     var cursor = db.collection('testTable').find()
     cursor.forEach(function (doc, err) {
       resultArray.push(doc)
-      assert.equal(null, err)
+      console.log('select juhu')
+      if (err) throw err
+     /*  assert.equal(null, err) */
     }, function () {
-      db.close()
-      res.render('/pages/feedback.html', {
+        client.close()
+      /* res.render('/tourPlans', {
         item: resultArray
-      })
-    })
+      })*/
+    }) 
+    res.redirect('/tourPlans.html')
   })
+  
 })
 
 app.post('/insertFeedback', urlencodedParser, function (req, res, next) {
