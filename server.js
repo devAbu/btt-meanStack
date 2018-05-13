@@ -31,6 +31,7 @@ app.post('/pages/insert', function (req, res, next) {
 
   mongoClient.connect(url, function (err, db) {
     db.collection('testPage').insertOne(item, function (err, result) {
+      assert.equal(null, err)
       console.log('item inserted')
       db.close()
     })
