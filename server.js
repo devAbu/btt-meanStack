@@ -28,24 +28,23 @@ app.get('/getData', urlencodedParser, function (req, res, next) {
       resultArray.push(doc)
       console.log('select juhu')
       if (err) throw err
-      /*  assert.equal(null, err) */
+    /*  assert.equal(null, err) */
     }, function () {
       client.close()
-      /* res.render('/tourPlans', {
-        item: resultArray
-      })*/
+    /* res.render('/tourPlans', {
+      item: resultArray
+    })*/
     })
     res.redirect('/tourPlans.html')
   })
-
 })
 
-app.post('/login', urlencodedParser, function(req, res, next) {
+app.post('/login', urlencodedParser, function (req, res, next) {
   var item = {
-    emailLog : req.body.emailLog,
-    passLog : req.body.passLog
+    emailLog: req.body.emailLog,
+    passLog: req.body.passLog
   }
-  
+
   var findMail = req.body.emailLog
   var findPass = req.body.passLog
 
@@ -53,58 +52,51 @@ app.post('/login', urlencodedParser, function(req, res, next) {
     if (err) throw err
 
     var db = client.db('btt')
-    
-     /* db.collection('register').insertOne(item, function (err, result) {
-       //assert.equal(null, err) 
-      if (err) throw err
-      console.log('item inserted')
-      client.close()
+
+    /* db.collection('register').insertOne(item, function (err, result) {
+      //assert.equal(null, err) 
+     if (err) throw err
+     console.log('item inserted')
+     client.close()
     })  */
 
-    
-     db.collection('register').find({emailLog: findMail}).toArray(function (err, result) {
+    db.collection('login').find({email: findMail}).toArray(function (err, result) {
       if (err) {
         throw err
       }
-        console.log(result)
-        if(result.length == 0) {
-          return res.redirect('/login.html')
-        } else {
+      console.log(result)
+      if (result.length == 0) {
+        return res.redirect('/login.html')
+      } else {
 
-        
-        //return res.redirect('/login.html')
-    
-      //console.log(result[].emailLog)
-      //console.log('item inserted')
-         db.collection('register').find({passLog: findPass}).toArray(function(err, result) {
-          if(err) {
+        // return res.redirect('/login.html')
+
+        // console.log(result[].emailLog)
+        // console.log('item inserted')
+        db.collection('login').find({passSign: findPass}).toArray(function (err, result) {
+          if (err) {
             throw err
           } else {
-            console.log(result)            
-            
+            console.log(result)
           }
-          if(result.length == 0){
-            return res.redirect('/login.html');
+          if (result.length == 0) {
+            return res.redirect('/login.html')
           } else {
-            db.collection('login').insertOne(item, function (err, result) {
+            db.collection('register').insertOne(item, function (err, result) {
               /* assert.equal(null, err) */
               if (err) throw err
               console.log('item inserted')
               client.close()
             })
-            return res.redirect('/index.html');
-
+            return res.redirect('/index.html')
           }
-        
-          
-          //return res.redirect('/index.html');
+
+        // return res.redirect('/index.html')
         })
-      } 
-      
-      
-   }) 
+      }
+    })
   })
-  //res.redirect('/login.html')
+// res.redirect('/login.html')
 })
 
 app.post('/insertFeedback', urlencodedParser, function (req, res, next) {
@@ -112,8 +104,8 @@ app.post('/insertFeedback', urlencodedParser, function (req, res, next) {
   var params = url.parse(req.url, true).query */
   var item = {
     feedback: req.body.feedback
-    /* feedback: 'test',
-    test: 'testRout' */
+  /* feedback: 'test',
+  test: 'testRout' */
   }
 
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
@@ -138,22 +130,37 @@ app.post('/insertRegister', urlencodedParser, function (req, res, next) {
     lastSign: req.body.lastSign,
     email: req.body.emailSign,
     passSign: req.body.passSign
-    /* feedback: 'test',
-    test: 'testRout' */
+  /* feedback: 'test',
+  test: 'testRout' */
   }
+
+  var find = req.body.emailSign
 
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw err
 
     var db = client.db('btt')
-    db.collection('login').insertOne(item, function (err, result) {
-      /* assert.equal(null, err) */
-      if (err) throw err
-      console.log('item inserted')
-      client.close()
+
+    db.collection('login').find({email: find}).toArray(function (err, result) {
+      if (err) {
+        throw err
+      } else {
+        console.log(result)
+      }
+      if (result.length > 0) {
+        return res.redirect('/register.html')
+      } else {
+        db.collection('login').insertOne(item, function (err, result) {
+          /* assert.equal(null, err) */
+          if (err) throw err
+          console.log('item inserted')
+          client.close()
+        })
+        return res.redirect('/index.html')
+      }
     })
   })
-  res.redirect('/index.html')
+// res.redirect('/index.html')
 })
 
 app.post('/insertRequest', urlencodedParser, function (req, res, next) {
@@ -179,8 +186,8 @@ app.post('/insertRequest', urlencodedParser, function (req, res, next) {
     interpreterNo: req.body.no,
     price: req.body.price,
 
-    /* feedback: 'test',
-    test: 'testRout' */
+  /* feedback: 'test',
+  test: 'testRout' */
   }
 
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
@@ -197,8 +204,6 @@ app.post('/insertRequest', urlencodedParser, function (req, res, next) {
   res.redirect('/tourPlans.html')
 })
 
-
-
 app.post('/update', urlencodedParser, function (req, res, next) {
   var item = {
     /* firstSign: req.body.firstSign,
@@ -213,13 +218,13 @@ app.post('/update', urlencodedParser, function (req, res, next) {
   }
 
   var set =
-    req.body.emailSign
+  req.body.emailSign
 
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw err
     var db = client.db('btt')
     db.collection('login').updateOne({
-      "email": set
+      'email': set
     }, {
       $set: item
     }, function (err, result) {
