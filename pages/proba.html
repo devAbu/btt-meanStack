@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-        
-    </head>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+
 <body>
     <!-- 
     <div ng-app="myApp2" ng-controller="namesCtrl2">
@@ -89,7 +91,7 @@
         </script>  -->
 
 
-        <!-- <form ng-app="loginApp" ng-controller="loginCtrl" name="loginForm" novalidate>
+    <!-- <form ng-app="loginApp" ng-controller="loginCtrl" name="loginForm" novalidate>
                 <ul class="list-group list-group-flush" >
                     <li class="list-group-item bg-info" style="border:none;  background:none !important;">
                         <input type="text" placeholder="First name..." ng-model="first" id="firstSign" name="firstSign" class="form-control mb-2" style="width:400px;"
@@ -169,7 +171,7 @@
     }); 
 </script>-->
 
-<!-- <form  name="myForm"  ng-app="myApp">
+    <!-- <form  name="myForm"  ng-app="myApp">
         <input name="myInput" ng-model="myInput" required my-directive>
         <h1>{{myForm.myInput.$valid}}</h1>
         <span style="color:gold" class="offset-1 mb-3" ng-show=" myForm.myInput.$dirty">
@@ -207,7 +209,7 @@
         </script> -->
 
 
-       <!--  <div ng-controller="myCtrl" ng-app="myApp">
+    <!--  <div ng-controller="myCtrl" ng-app="myApp">
                 <button ng-click="myFunc()">OK</button>
                 <input type="{{text}}">
             </div>
@@ -226,7 +228,32 @@
             }]);
             </script> -->
 
-            
+    <!-- <div ng-app="app" ng-controller="ctrl">
+        <h1>{{myWelcome}}</h1>
+
+    </div>
+
+    <script>
+        var app = angular.module('app', []);
+        app.controller('ctrl', function ($scope, $http) {
+            $http.get("welcomeProba.htm")
+                .then(function (response) {
+                    $scope.test = response.data
+                    if ($scope.test == "juhu2") {
+                        $scope.myWelcome = "abu"
+                    } else {
+                        $scope.myWelcome = "juhu"
+                    }
+                });
+        });
+    </script> -->
+
+
+    <form action="/test/submit" method="post">
+        <input type="text" name="test">
+        <button type="submit">test</button>
+    </form>
+
 
 
 
