@@ -149,7 +149,7 @@
 
     <script>
         var app = angular.module('loginApp', []);
-        app.controller('loginCtrl', ['$scope', '$http', function ($scope, $http) {
+        app.controller('loginCtrl', ['$scope', function ($scope, $http) {
             $scope.email = "";
             $scope.pass = "";
             $scope.text = "password";
@@ -160,7 +160,9 @@
                     $scope.text = "password";
                 }
             };
-            /* $http.get('loginAjax.htm').then(function (res) {
+            /*, '$http' 
+            
+            $http.get('loginAjax.htm').then(function (res) {
                 var data = res.data;
                 console.log(data);
                 if (data.indexOf('success') > -1) {

@@ -18,7 +18,7 @@ var urlencodedParser = bodyParser.urlencoded({
 
 app.use(express.static(__dirname + '/pages'))
 
-app.get('/getData', urlencodedParser, function (req, res, next) {
+/* app.get('/getData', urlencodedParser, function (req, res, next) {
   var resultArray = []
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw err
@@ -28,16 +28,17 @@ app.get('/getData', urlencodedParser, function (req, res, next) {
       resultArray.push(doc)
       console.log('select juhu')
       if (err) throw err
-      /*  assert.equal(null, err) */
-    }, function () {
-      client.close()
-      /* res.render('/tourPlans', {
-        item: resultArray
-      })*/
-    })
-    res.redirect('/tourPlans.html')
-  })
+      /*  assert.equal(null, err) *
+},
+function () {
+  client.close()
+  /* res.render('/tourPlans', {
+    item: resultArray
+  })*
 })
+res.redirect('/tourPlans.html')
+})
+}) * /
 
 // app.set('view engine', 'html')
 
@@ -53,7 +54,7 @@ app.get('/getData', urlencodedParser, function (req, res, next) {
 
 module.exports = router */
 
-router.post('/login', urlencodedParser, function (req, res, next) {
+app.post('/login', urlencodedParser, function (req, res, next) {
   var item = {
     emailLog: req.body.emailLog,
     passLog: req.body.passLog
