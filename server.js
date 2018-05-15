@@ -91,7 +91,7 @@ app.post('/login', urlencodedParser, function (req, res, next) {
       }
       console.log(result)
       if (result.length == 0) {
-        return res.redirect('/login.html')
+        return res.redirect('/#!login')
       } else {
 
         // return res.redirect('/login.html')
@@ -107,7 +107,7 @@ app.post('/login', urlencodedParser, function (req, res, next) {
             console.log(result)
           }
           if (result.length == 0) {
-            return res.redirect('/login.html')
+            return res.redirect('/#!login')
           } else {
             db.collection('register').insertOne(item, function (err, result) {
               /* assert.equal(null, err) */
@@ -115,7 +115,7 @@ app.post('/login', urlencodedParser, function (req, res, next) {
               console.log('item inserted')
               client.close()
             })
-            return res.redirect('/index.html')
+            return res.redirect('#/!')
           }
 
           // return res.redirect('/index.html')
@@ -146,7 +146,7 @@ app.post('/insertFeedback', urlencodedParser, function (req, res, next) {
       client.close()
     })
   })
-  res.redirect('/feedback.html')
+  res.redirect('/#!feedback')
 })
 
 app.post('/insertRegister', urlencodedParser, function (req, res, next) {
@@ -177,7 +177,7 @@ app.post('/insertRegister', urlencodedParser, function (req, res, next) {
         console.log(result)
       }
       if (result.length > 0) {
-        return res.redirect('/register.html')
+        return res.redirect('/#!register')
       } else {
         db.collection('login').insertOne(item, function (err, result) {
           /* assert.equal(null, err) */
@@ -185,7 +185,7 @@ app.post('/insertRegister', urlencodedParser, function (req, res, next) {
           console.log('item inserted')
           client.close()
         })
-        return res.redirect('/index.html')
+        return res.redirect('#/!')
       }
     })
   })
@@ -230,7 +230,7 @@ app.post('/insertRequest', urlencodedParser, function (req, res, next) {
       client.close()
     })
   })
-  res.redirect('/tourPlans.html')
+  res.redirect('/#!tourPlans')
 })
 
 app.post('/update', urlencodedParser, function (req, res, next) {
@@ -252,20 +252,33 @@ app.post('/update', urlencodedParser, function (req, res, next) {
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw err
     var db = client.db('btt')
-    db.collection('login').updateOne({
-      'email': set
-    }, {
-      $set: item
-    }, function (err, result) {
-      /* assert.equal(null, err) */
-      console.log(set)
-      console.log(item)
-      if (err) throw err
-      console.log('item inserted')
-      client.close()
+    db.collection('login').find({
+      email: set
+    }).toArray(function (err, result) {
+      if (err)
+        throw err
+      console.log(result)
+      if (result.length == 0) {
+        return res.redirect('/#!forgot')
+      } else {
+        db.collection('login').updateOne({
+          'email': set
+        }, {
+          $set: item
+        }, function (err, result) {
+          /* assert.equal(null, err) */
+          console.log(set)
+          console.log(item)
+          if (err) throw err
+          console.log('pass changed')
+          client.close()
+        })
+        return res.redirect('/#!login')
+      }
     })
+
   })
-  res.redirect('/login.html')
+  //res.redirect('/login.html')
 })
 
 app.post('/delete', function (req, res, next) {})
