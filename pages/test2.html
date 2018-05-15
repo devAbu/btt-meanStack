@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+
+    <div ng-view></div>
+
+    <script>
+        var app = angular.module("myApp", ["ngRoute"]);
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when("/", {
+                    templateUrl: "index2.html"
+                })
+                .when("/aboutUs", {
+                    templateUrl: "aboutUs2.html"
+                })
+                .when("/feedback", {
+                    templateUrl: "feedback2.html"
+                })
+                .when("/register", {
+                    templateUrl: "register2.html"
+                })
+                .when("/forgot", {
+                    templateUrl: "forgotPass2.html"
+                })
+                .when("/makeTour", {
+                    templateUrl: "makeTour2.html"
+                })
+                .when("/tourPlans", {
+                    templateUrl: "tourPlans2.html"
+                })
+                .when("/login", {
+                    templateUrl: "login2.html"
+                });
+        });
+    </script>
+
+    <a href="#/!">Home</a>
+    <a href="#!aboutUs">About Us</a>
+    <a href="#!feedback">Feedback</a>
+    <a href="#!register">Register</a>
+    <a href="#!forgot">Forgot password</a>
+    <a href="#!makeTour">Make Tour</a>
+    <a href="#!tourPlans">Tour Plans</a>
+    <a href="#!login">Login</a>
+
+</body>
+
+</html>

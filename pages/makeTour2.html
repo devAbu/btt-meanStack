@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <title>BTT</title>
+    <link rel="icon" type="image/ico" href="images/icon.ico" />
+    <meta name="author" content="abu">
+    <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
+    <meta name="description" content="BTT - Bosnian Toursit Travel offers the best tour plans and the best hotels in B&H. ">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <!--     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <!--provjeriti-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+
+
+</head>
+
+<body>
+
+
+
+    <nav class="navbar bg-primary navbar-dark navbar-expand-sm fixed-top" style="opacity:0.7; font-size:18px;">
+        <a href="index.html" class="navbar-brand">
+            <img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" />
+            <span class="h4">BTT</span>
+        </a>
+        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expended="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav" id="navScrollspy">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link link ">
+                        <i class="fas fa-home mr-2"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="aboutUs.html" class="nav-link link">
+                        <i class="fas fa-users mr-2"></i>About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="tourPlans.html" class="nav-link link active">
+                        <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
+                </li>
+                <li class="nav-item">
+                    <a href="feedback.html" class="nav-link link">
+                        <i class="far fa-smile mr-2"></i>Feedback</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="register.html" class="nav-link link">
+                        <span class="navLinks">
+                            <i class="fa fa-user-plus mr-2"></i>Register</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link link">
+                        <span class="navLinks">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Login</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="jumbotron" class="jumbotron8 jumbotron-fluid text-white d-flex justify-content-center align-items-center">
+        <div class="container text-center">
+            <h1 class="display-1 text-primary text-uppercase">BTT</h1>
+            <p class="display-4 d-none d-sm-block">Bosnian Tourist Travel</p>
+            <p class="lead">Visit Bosnia & Herzegovina with us!</p>
+            <p class="lead">The best offers and price!</p>
+            <p class="text-primary h5 mb-3">Visit us on:</p>
+            <a href="https://www.instagram.com/bosniant/" target="_blank" class="btn btn-lg btn-primary mb-1">
+                <i class="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram</a>
+            <a href="https://www.facebook.com" target="_blank" class="btn btn-lg btn-primary mb-1">
+                <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
+        </div>
+    </section>
+
+    <section>
+        <form action="/insertRequest" method="post" ng-app="makeApp" ng-controller="makeCtrl" name="makeForm" novalidate>
+            <div class="row">
+                <div class="offset-1 col-3">
+                    <h4 class="text-success">City:</h4>
+
+                    <input class="w3-check mr-1" id="igman" ng-model="igman" name="igman" type="checkbox" ng-click="check($event)">Igma
+                    <!-- onclick="price()" -->
+                    <input class="w3-check mr-1" id="mostar" ng-click="check2($event)" name="mostar" type="checkbox">Mostar
+                    <!-- onclick="price()" -->
+                    <input class="w3-check mr-1" id="jajce" ng-click="check3($event)" name="jajce" type="checkbox">Jajce
+                    <!-- onclick="price()" -->
+                    <input class="w3-check mr-1" id="konjic" ng-click="check4($event)" name="konjic" type="checkbox">Konjic
+                    <!-- onclick="price()" -->
+                    <br />
+                    <input class="w3-check  mr-1 mt-1" ng-click="check5($event)" id="bjelasnica" name="bjelasnica" type="checkbox">Bjelasnica
+                    <!-- onclick="price()" -->
+                    <input class="w3-check mr-1" id="trebevic" ng-click="check6($event)" name="trebevic" type="checkbox">Trebevic
+                    <!-- onclick="price()" -->
+                    <input class="w3-check mr-1" ng-click="check7($event)" id="srajevo" name="sarajevo" type="checkbox">Sarajevo
+                    <!-- onclick="price()" -->
+                    <br />
+                    <input class="w3-check mr-1 mt-1" ng-click="check8($event)" id="jahorina" name="jahorina" type="checkbox">Jahorina
+                    <!-- onclick="price() "-->
+                    <br />
+                    <!-- <input type="text" class="form-control mt-2" id="other"  name="other" placeholder="Other..." /> -->
+                    <!-- onchange="price()" -->
+                    <!-- title="For multiple places please use ','" -->
+                </div>
+                <div class="col-3 mr-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="text-success">Budget:</h4>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="number" id="budget" name="budget" ng-change="check17()" ng-model="budget" min="0" step="10" max="8999" class="form-control currency"
+                                />
+                                <!--  onchange="price()" -->
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h4 class="text-success">No. of people:</h4>
+
+                            <input type="number" id="people" ng-change="check16()" name="people" ng-model="people" min="0" step="1" max="15" class="form-control"
+                                required />
+                            <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.people.$dirty">
+                                <span ng-show="makeForm.people.$error.required"> Please enter the length of your tour!!!
+                                </span>
+                            </span>
+                            <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.people.$invalid ">
+                                <!-- <span ng-show="myForm.myInput.$error.required"> Please enter your last name!!! </span> -->
+                                <span ng-show="makeForm.people.$invalid">The max length of the tour is 15 days</span>
+                            </span>
+                            <!-- onchange="price()" -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 ml-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="text-success">Price:</h4>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="number" ng-model="price" id="price" name="price" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-12 mt-4">
+                            <button type="submit" class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 offset-1 mt-4 mb-3">
+                    <h4 class="text-success">Tour Length (days):</h4>
+
+                    <input type="number" ng-change="check15()" id="length" name="length" ng-model="tour" min="0" max="10" step="1" class="form-control"
+                        required/>
+                    <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.length.$dirty">
+                        <span ng-show="makeForm.length.$error.required"> Please enter the length of your tour!!!
+                        </span>
+                    </span>
+                    <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.length.$invalid ">
+                        <!-- <span ng-show="myForm.myInput.$error.required"> Please enter your last name!!! </span> -->
+                        <span ng-show="makeForm.length.$invalid">The max length of the tour is 10 days</span>
+                    </span>
+                </div>
+                <div class=" col-3 mt-4">
+                    <h4 class="text-success">Period:</h4>
+
+                    <input class="w3-check  mr-1" id="zima" ng-click="check9($event)" name="zima" type="checkbox">Zima
+                    <!-- onclick="price()" -->
+                    <input class="w3-check mr-1" id="ljeto" name="ljeto" ng-click="check10($event)" type="checkbox">Ljeto
+                    <!-- onclick="price()" -->
+                    <input class="w3-check mr-1" id="proljece" ng-click="check11($event)" name="proljece" type="checkbox">Proljece
+                    <!-- onclick="price()" -->
+                    <input class="w3-check mr-1" ng-click="check12($event)" id="jesen" name="jesen" type="checkbox">Jesen
+                    <!-- onclick="price()" -->
+                    <br />
+                </div>
+                <div class="col-3 offset-1 mt-4">
+                    <h4 class="text-success">Interpreter:</h4>
+
+                    <input type="checkbox" class="w3-check mr-1" id="yes" ng-click="check13($event)" name="yes" />Yes
+                    <!-- onclick="price()" -->
+                    <input type="checkbox" class="w3-check mr-1" id="no" ng-click="check14($event)" name="no" />No
+                    <!-- onclick="price()" -->
+                </div>
+
+            </div>
+        </form>
+
+        <!-- <div class="alert" id="alert"></div>
+            <div id="dialog" title="Warning">
+            <p>Your budget is smaller than the total price!!!</p> -->
+    </section>
+
+    <script>
+        var app = angular.module('makeApp', []);
+        app.controller('makeCtrl', function ($scope) {
+            $scope.price = 0;
+            $scope.people = 0;
+            $scope.tour = 0;
+            $scope.budget = 0;
+            /* $scope.igman = false;
+                $scope.mostar = false;
+                $scope.jajce = false;
+                $scope.konjic = false;
+                $scope.bjelasnica = false;
+                $scope.trebevic = false;
+                $scope.sarajevo = false;
+                $scope.jahorina = false;
+    
+                if ($scope.igman == true) {
+                    console.log('igman true');
+                } else {
+                    console.log("igman false");
+                } */
+
+            $scope.check = function check(event) {
+                console.log(event.target.checked);
+                $scope.igman = event.target.checked;
+                if ($scope.igman == true) {
+                    console.log('juhu');
+                    $scope.price += 75;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 75;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check2 = function check2(event) {
+                console.log(event.target.checked);
+                $scope.mostar = event.target.checked;
+                if ($scope.mostar == true) {
+                    console.log('juhu');
+                    $scope.price += 300;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 300;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check3 = function check3(event) {
+                console.log(event.target.checked);
+                $scope.jajce = event.target.checked;
+                if ($scope.jajce == true) {
+                    console.log('juhu');
+                    $scope.price += 200;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 200;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check4 = function check4(event) {
+                console.log(event.target.checked);
+                $scope.konjic = event.target.checked;
+                if ($scope.konjic == true) {
+                    console.log('juhu');
+                    $scope.price += 135;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 135;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check5 = function check5(event) {
+                console.log(event.target.checked);
+                $scope.bjelasnica = event.target.checked;
+                if ($scope.bjelasnica == true) {
+                    console.log('juhu');
+                    $scope.price += 55;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 55;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check6 = function check6(event) {
+                console.log(event.target.checked);
+                $scope.trebevic = event.target.checked;
+                if ($scope.trebevic == true) {
+                    console.log('juhu');
+                    $scope.price += 100;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 100;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check7 = function check7(event) {
+                console.log(event.target.checked);
+                $scope.sarajevo = event.target.checked;
+                if ($scope.sarajevo == true) {
+                    console.log('juhu');
+                    $scope.price += 85;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 85
+                    console.log($scope.price);
+                }
+            }
+            $scope.check8 = function check8(event) {
+                console.log(event.target.checked);
+                $scope.jahorina = event.target.checked;
+                if ($scope.jahorina == true) {
+                    console.log('juhu');
+                    $scope.price += 150;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 150;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check9 = function check9(event) {
+                console.log(event.target.checked);
+                $scope.zima = event.target.checked;
+                if ($scope.zima == true) {
+                    console.log('juhu');
+                    $scope.price += 150;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 150;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check10 = function check10(event) {
+                console.log(event.target.checked);
+                $scope.ljeto = event.target.checked;
+                if ($scope.ljeto == true) {
+                    console.log('juhu');
+                    $scope.price += 200;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 200;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check11 = function check11(event) {
+                console.log(event.target.checked);
+                $scope.proljece = event.target.checked;
+                if ($scope.proljece == true) {
+                    console.log('juhu');
+                    $scope.price += 50;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 50;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check12 = function check12(event) {
+                console.log(event.target.checked);
+                $scope.jesen = event.target.checked;
+                if ($scope.jesen == true) {
+                    console.log('juhu');
+                    $scope.price += 75;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 75;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check13 = function check13(event) {
+                console.log(event.target.checked);
+                $scope.yes = event.target.checked;
+                if ($scope.yes == true) {
+                    console.log('juhu');
+                    $scope.price += 100;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 100;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check14 = function check14(event) {
+                console.log(event.target.checked);
+                $scope.no = event.target.checked;
+                if ($scope.no == true) {
+                    console.log('juhu');
+                    $scope.price += 0;
+                    console.log($scope.price);
+                } else {
+                    console.log('abu');
+                    $scope.price -= 0;
+                    console.log($scope.price);
+                }
+            }
+            $scope.check15 = function check15() {
+                console.log($scope.tour);
+                console.log($scope.price);
+                if ($scope.tour == 1) {
+                    $scope.price += 50;
+                }
+                if ($scope.tour == 2) {
+                    $scope.price += 75;
+                }
+                if ($scope.tour == 3) {
+                    $scope.price += 100;
+                }
+                if ($scope.tour == 4) {
+                    $scope.price += 125;
+                }
+                if ($scope.tour == 5) {
+                    $scope.price += 150;
+                }
+                if ($scope.tour == 6) {
+                    $scope.price += 175;
+                }
+                if ($scope.tour == 7) {
+                    $scope.price += 200;
+                }
+                if ($scope.tour == 8) {
+                    $scope.price += 225;
+                }
+                if ($scope.tour == 9) {
+                    $scope.price += 250;
+                }
+                if ($scope.tour == 10) {
+                    $scope.price += 300;
+                }
+
+            }
+            $scope.check16 = function check16() {
+                console.log($scope.people);
+                console.log($scope.price);
+                if ($scope.people == 1) {
+                    $scope.price += 50;
+                }
+                if ($scope.people == 2) {
+                    $scope.price += 75;
+                }
+                if ($scope.people == 3) {
+                    $scope.price += 100;
+                }
+                if ($scope.people == 4) {
+                    $scope.price += 125;
+                }
+                if ($scope.people == 5) {
+                    $scope.price += 150;
+                }
+                if ($scope.people == 6) {
+                    $scope.price += 175;
+                }
+                if ($scope.people == 7) {
+                    $scope.price += 200;
+                }
+                if ($scope.people == 8) {
+                    $scope.price += 225;
+                }
+                if ($scope.people == 9) {
+                    $scope.price += 250;
+                }
+                if ($scope.people == 10) {
+                    $scope.price += 300;
+                }
+                if ($scope.people == 11) {
+                    $scope.price += 300;
+                }
+                if ($scope.people == 12) {
+                    $scope.price += 300;
+                }
+                if ($scope.people == 13) {
+                    $scope.price += 300;
+                }
+                if ($scope.people == 14) {
+                    $scope.price += 300;
+                }
+                if ($scope.people == 15) {
+                    $scope.price += 300;
+                }
+            }
+
+            $scope.check17 = function check17() {
+                console.log($scope.budget);
+                console.log($scope.price);
+                if ($scope.budget < $scope.price) {
+                    console.log('no');
+                }
+            }
+        })
+    </script>
+
+
+
+    <footer class="bg-secondary ">
+        <div class="row no-gutters ">
+            <div class="col-6 mt-5 ">
+                <img src="images/icon.png " alt="logo " class="img-fluid ml-2 " width="100 " height="100 " />
+                <label class="text-uppercase text-center text-warning h1 " style="opacity:0.7; ">Bosnian Tourist Travel</label>
+                <p class="ml-3 text-dark mt-4 " style="max-width:400px; ">Home to medieval villages, rivers and lakes, plus the craggy Dinaric Alps, and many more, explore our Country.</p>
+                <p class="ml-3 text-dark mt-3 ">You can see BTT offers by visitting this
+                    <a href="tourPlans.html " class="text-warning " style="text-decoration:none; ">LINK.</a>
+                </p>
+            </div>
+            <div class="col-5 mt-5 offset-1 ">
+                <h1 class="text-warning mb-5 text-uppercase " style="margin-top:13px !important; opacity:0.7; ">Contact info</h1>
+                <ul class="list-group list-group-flush " style="width:500px; border:none; ">
+                    <!-- modal angularaov<li class="list-group-item text-warning bg-secondary mt-4 ">Address:
+                                <span class="ml-5 ">
+                                    <a href="# " id="map " data-toggle="modal " class="text-warning " data-target="#map7
+                            " style="text-decoration:none; ">
+                                        <i class="fas fa-map-marker mr-2 "></i>Grada Bakua 11, Sarajevo, B&H</a>
+                                </span>
+                            </li> -->
+                    <li class="list-group-item text-warning bg-secondary ">Phone:
+                        <span style="margin-left:60px; ">
+                            <a href="tel:+38761091675 " class="text-warning " style="text-decoration:none; ">
+                                <i class="fas fa-phone mr-2 "></i>(+387)61 091 675</a>
+                        </span>
+                    </li>
+                    <li class="list-group-item text-warning bg-secondary ">E-mail:
+                        <span style="margin-left:60px; ">
+                            <a href="mailto:abdulrahman.almonajed@gmail.com " style="text-decoration:none; " class="text-warning ">
+                                <i class="far fa-envelope mr-2 "></i>abdulrahman.almonajed@gmail.com</a>
+                        </span>
+                    </li>
+                    <li class="list-group-item text-warning bg-secondary ">
+                        Visit us on:
+                        <a href="https://www.instagram.com/bosniant/ " target="_blank " class="text-warning " style="margin-left:32px
+                            !important; text-decoration:none; ">
+                            <i class="fab fa-instagram mr-2 " aria-hidden="true "></i>Instagram</a>
+                        <a href="https://www.facebook.com " target="_blank " class="text-warning ml-4 " style="text-decoration:none; ">
+                            <i class="fab fa-facebook mr-2 " aria-hidden="true "></i>Facebook</a>
+                    </li>
+                    <li class="list-group-item text-warning bg-secondary "></li>
+                </ul>
+            </div>
+            <div class="col-12 text-center text-dark mt-3 ">
+                <p style="font-size:20px; ">&copy; 2018 Abu</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

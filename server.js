@@ -6,7 +6,7 @@ var http = require('http')
 var url = require('url')
 /* var assert = require('assert') 
 var objectId = require('mongodb').ObjectID*/
-var router = express.Router()
+/* var router = express.Router() */
 
 /* var url = 'mongodb://localhost:27017/testdb' */
 
@@ -18,6 +18,14 @@ var urlencodedParser = bodyParser.urlencoded({
 
 app.use(express.static(__dirname + '/pages'))
 
+/* app.set('view engine', 'ejs');
+
+app.get('/', function (req, res) {
+  res.render('pages/index');
+});
+app.get('/aboutUs', function (req, res) {
+  res.render('pages/aboutUs');
+}); */
 /* app.get('/getData', urlencodedParser, function (req, res, next) {
   var resultArray = []
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
@@ -69,7 +77,7 @@ app.post('/login', urlencodedParser, function (req, res, next) {
     var db = client.db('btt')
 
     /* db.collection('register').insertOne(item, function (err, result) {
-      //assert.equal(null, err) 
+      //assert.equal(null, err)
      if (err) throw err
      console.log('item inserted')
      client.close()

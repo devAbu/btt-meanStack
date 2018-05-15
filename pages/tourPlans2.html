@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <title>BTT</title>
+    <link rel="icon" type="image/ico" href="images/icon.ico" />
+    <meta name="author" content="abu">
+    <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
+    <meta name="description" content="BTT - Bosnian Toursit Travel offers the best tour plans and the best hotels in B&H. ">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script> -->
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+</head>
+
+
+<body>
+
+
+
+    <nav class="navbar bg-primary navbar-dark navbar-expand-sm fixed-top" style="opacity:0.7; font-size:18px;">
+        <a href="index.html" class="navbar-brand">
+            <img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" />
+            <span class="h4">BTT</span>
+        </a>
+        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expended="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav" id="navScrollspy">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link link">
+                        <i class="fas fa-home mr-2"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="aboutUs.html" class="nav-link link">
+                        <i class="fas fa-users mr-2"></i>About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="tourPlans.html" class="nav-link link active">
+                        <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
+                </li>
+                <li class="nav-item">
+                    <a href="feedback.html" class="nav-link link">
+                        <i class="far fa-smile mr-2"></i>Feedback</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="register.html" class="nav-link link">
+                        <span class="navLinks">
+                            <i class="fa fa-user-plus mr-2"></i>Register</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link link">
+                        <span class="navLinks">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Login</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="jumbotron" class="jumbotron3 jumbotron-fluid text-white d-flex justify-content-center align-items-center">
+        <div class="container text-center">
+            <h1 class="display-1 text-primary text-uppercase">BTT</h1>
+            <p class="display-4 d-none d-sm-block">Bosnian Tourist Travel</p>
+            <p class="lead text-uppercase" style="font-size:30px; color:gold;">Ready for an unforgettable adventure?</p>
+            <p class=" h5 mb-3">Visit us on:</p>
+            <a href="https://www.instagram.com/bosniant/" target="_blank" class="btn btn-lg btn-primary mb-1">
+                <i class="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram</a>
+            <a href="https://www.facebook.com" target="_blank" class="btn btn-lg btn-primary mb-1">
+                <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
+        </div>
+    </section>
+
+    <section ng-app="myApp" ng-controller="placesCtrl">
+
+        <!-- <div ng-controller="CollapseDemoCtrl" ng-app="ui.bootstrap.demo">
+                <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse Vertically</button>
+                <div uib-collapse="isCollapsed">
+                    <div class="well well-lg">Some content</div>
+                </div>
+            </div>
+    
+            <script>
+                angular.module('ui.bootstrap.demo', []).controller('CollapseDemoCtrl', function ($scope) {
+                    $scope.isCollapsed = false;
+                });
+            </script>-->
+
+
+        <div>
+
+
+            <div class="row no-gutters">
+                <div class="col-5 offset-2">
+                    <input id="search-loged" ng-model="searchBox" type="text" class="form-control mt-2" placeholder="Search...">
+                    <ul>
+                        <li ng-repeat="x in places | filter: searchBox">
+                            {{ x.title + ', ' + x.period + ', ' + x.length + ', ' + x.people }}
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-2">
+                    <button ng-click="toggle=!toggle" id="filters" class="btn btn-success my-2  ml-4" style="width:200px;">
+                        <i class="fas fa-sliders-h mr-2" data-fa-transform="rotate-90"></i> Filters</button>
+                </div>
+                <div class="col-2">
+                    <button id="makeTour" ng-click="changeWindow()" class="btn btn-warning my-2  ml-4" style="width:200px;">
+                        <i class="fa fa-paper-plane mr-2"></i>
+                        Make Own Tour
+                    </button>
+                </div>
+            </div>
+            <!-- <a href="/getData">LOAD DATA</a>
+        <div>
+            {{# each items }}
+                <article class="item">
+                    <div>Title: {{ this.feedback }}</div>
+                    <div>Content: {{ this.test }}</div>
+                </article>
+            {{/each}}
+        </div> -->
+            <script>
+                angular.module('myApp', []).controller('placesCtrl', function ($scope, $log, $window) {
+                    //iz baze podatke povuc
+                    $scope.changeWindow = function () {
+                        var url = "http://" + $window.location.host + "/makeTour.html";
+                        $log.log(url);
+                        $window.location.href = url;
+                    };
+                    $scope.places = [{
+                            period: 'November - February',
+                            title: 'Zima',
+                            length: '5 days',
+                            people: '8 max'
+                        },
+                        {
+                            period: 'March - August',
+                            title: 'Jesen - Proljece - Ljeto',
+                            length: '7 days',
+                            people: '8 max'
+                        },
+                    ];
+
+                });
+            </script>
+            <div class="row" ng-show="toggle">
+                <div class=" col-12 text-success offset-1 mt-2 mb-5 ">
+                    <i class="fas fa-rss "></i>
+                    xx Tour found
+                </div>
+
+                <div class="offset-1 col-3 ">
+                    <h4 class="text-success ">Tour's period:</h4>
+
+                    <input type="checkbox" class="w3-check mr-1">Zime
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Proljece
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Jesen
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Ljeto
+                    <br />
+                </div>
+                <div class=" col-2 ">
+                    <h4 class="text-success ">Tour length:</h4>
+
+                    <input type="checkbox" class="w3-check mr-1">Up to 3 days
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Up to 5 days
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Up to 7 days
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Up to 10 days
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">More then 10 days
+                    <br />
+                </div>
+                <div class=" col-3 ">
+                    <h4 class="text-success ">No. of people:</h4>
+
+                    <input type="checkbox" class="w3-check mr-1">Up to 2 people
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Up to 5 people
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Up to 8 people
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Up to 10 people
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">More then 10 people
+                    <br />
+                </div>
+                <div class=" col-2 ">
+                    <h4 class="text-success ">Budget:</h4>
+
+                    <input type="checkbox" class="w3-check mr-1">Up to 500$
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Up to 800
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Up to 1200
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Up to 1500
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">Up to 2000
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1">More then 1500
+                    <br />
+                </div>
+                <div class="offset-1 col-3 ">
+                    <h4 class="text-success ">Offer type:</h4>
+
+                    <input type="checkbox" class="w3-check mr-1">All
+                    <br />
+                    <input type="checkbox" class="w3-check mr-1"> Special Offers
+                    <br />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="card text-center mt-4 ">
+            <div class="card-header text-success h3 text-uppercase ">
+                Zima
+            </div>
+            <div class="card-body ">
+                <h5 class="card-title text-left ml-5 h1 text-primary ">Skijanje</h5>
+                <a href="# " style="text-decoration:none; ">
+                    <img src="images/skijanje.jpg " class="tourPlans " alt="skijanje " width="400 " height="250
+                " style="float:left; " />
+                </a>
+
+                <a href="# " style="text-decoration:none; ">
+                    <label class="card-text " style="max-width:800px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content
+                        is a little bit longer.</label>
+                </a>
+
+                <ul class="list-group list-group-flush tourPlans2 " style="width:390px; border:none; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-users "></i>
+                            <span class="ml-2 ">Max People: From 2 to 8</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-calendar-alt "></i>
+                            <span class="ml-3 ">Availability: From November to February</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-euro-sign mr-4 "></i>From 350 to 500</p>
+                    </li>
+                </ul>
+
+                <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-180px; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text "></p>
+                        <input type="button " class="btn btn-warning " value="More Detalis " />
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text ">
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                        </p>
+                    </li>
+                    <li class="list-group-item ">
+                        <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-muted ">
+                <small class="text-muted ">
+                    <i class="far fa-clock mr-2 "></i>5 days</small>
+            </div>
+        </div>
+        <div class="card text-center mt-2 ">
+            <div class="card-header text-success h3 text-uppercase ">
+                Jesen - Proljece - Ljeto
+            </div>
+            <div class="card-body ">
+                <h5 class="card-title text-left ml-5 h1 text-primary ">Vodopad</h5>
+                <a href="# " style="text-decoration:none; ">
+                    <img src="images/jajce.jpg " alt="skijanje " class="tourPlans " width="400 " height="250 " style="float:left; " />
+                </a>
+                <a href="# " style="text-decoration:none; ">
+                    <label class="card-text " style="max-width:800px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content
+                        is a little bit longer.</label>
+                </a>
+
+                <ul class="list-group list-group-flush " style="width:390px; border:none; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-users "></i>
+                            <span class="ml-2 ">Max People: From 2 to 8</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-calendar-alt "></i>
+                            <span class="ml-3 ">Availability: From March to August</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-euro-sign mr-4 "></i>From 500 to 850</p>
+                    </li>
+                </ul>
+
+                <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right;margin-top:-180px; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text "></p>
+                        <input type="button " class="btn btn-warning " value="More Detalis " />
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text ">
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                        </p>
+                    </li>
+                    <li class="list-group-item ">
+                        <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-muted ">
+                <small class="text-muted ">
+                    <i class="far fa-clock mr-2 "></i>7 days</small>
+            </div>
+        </div>
+        <div class="card text-center mt-2 ">
+            <div class="card-header text-success h3 text-uppercase ">
+                Jesen - Proljece - Ljeto
+            </div>
+            <div class="card-body ">
+                <h5 class="card-title text-left ml-5 h1 text-primary ">More</h5>
+                <a href="# " style="text-decoration:none; ">
+                    <img src="images/neum.jpg " alt="skijanje " width="400 " class="tourPlans " height="250 " style="float:left; " />
+                </a>
+                <a href="# " style="text-decoration:none; ">
+                    <label class="card-text " style="max-width:800px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content
+                        is a little bit longer.</label>
+                </a>
+
+                <ul class="list-group list-group-flush " style="width:390px; border:none; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-users "></i>
+                            <span class="ml-2 ">Max People: From 2 to 8</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-calendar-alt "></i>
+                            <span class="ml-3 ">Availability: From March to August</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-euro-sign mr-4 "></i>From 899 to 1200</p>
+                    </li>
+                </ul>
+
+                <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right;margin-top:-180px; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text "></p>
+                        <input type="button " class="btn btn-warning " value="More Detalis " />
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text ">
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                        </p>
+                    </li>
+                    <li class="list-group-item ">
+                        <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-muted ">
+                <small class="text-muted ">
+                    <i class="far fa-clock mr-2 "></i>10 days</small>
+            </div>
+        </div>
+        <div class="card text-center mt-2 ">
+            <div class="card-header text-success h3 text-uppercase ">
+                Zima
+            </div>
+            <div class="card-body ">
+                <h5 class="card-title text-left ml-5 h1 text-primary ">Skijanje</h5>
+                <a href="# " style="text-decoration:none; ">
+                    <img src="images/skijanje.jpg " alt="skijanje " width="400 " class="tourPlans " height="250
+                " style="float:left; " />
+                </a>
+                <a href="# " style="text-decoration:none; ">
+                    <label class="card-text " style="max-width:800px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content
+                        is a little bit longer.</label>
+                </a>
+
+                <ul class="list-group list-group-flush " style="width:390px; border:none; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-users "></i>
+                            <span class="ml-2 ">Max People: From 2 to 8</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-calendar-alt "></i>
+                            <span class="ml-3 ">Availability: From November to February</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-euro-sign mr-4 "></i>From 350 to 500</p>
+                    </li>
+                </ul>
+
+                <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-180px; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text "></p>
+                        <input type="button " class="btn btn-warning " value="More Detalis " />
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text ">
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                        </p>
+                    </li>
+                    <li class="list-group-item ">
+                        <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-muted ">
+                <small class="text-muted ">
+                    <i class="far fa-clock mr-2 "></i>5 days</small>
+            </div>
+        </div>
+        <div class="card text-center mt-2 ">
+            <div class="card-header text-success h3 text-uppercase ">
+                Zima
+            </div>
+            <div class="card-body ">
+                <h5 class="card-title text-left ml-5 h1 text-primary ">Skijanje</h5>
+                <a href="# " style="text-decoration:none; ">
+                    <img src="images/skijanje.jpg " alt="skijanje " width="400 " class="tourPlans " height="250
+                " style="float:left; " />
+                </a>
+                <a href="# " style="text-decoration:none; ">
+                    <label class="card-text " style="max-width:800px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content
+                        is a little bit longer.</label>
+                </a>
+
+                <ul class="list-group list-group-flush " style="width:390px; border:none; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-users "></i>
+                            <span class="ml-2 ">Max People: From 2 to 8</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-calendar-alt "></i>
+                            <span class="ml-3 ">Availability: From November to February</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-euro-sign mr-4 "></i>From 350 to 500</p>
+                    </li>
+                </ul>
+
+                <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-180px; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text "></p>
+                        <input type="button " class="btn btn-warning " value="More Detalis " />
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text ">
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                        </p>
+                    </li>
+                    <li class="list-group-item ">
+                        <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-muted ">
+                <small class="text-muted ">
+                    <i class="far fa-clock mr-2 "></i>5 days</small>
+            </div>
+        </div>
+        <div class="card text-center mt-2 ">
+            <div class="card-header text-success h3 text-uppercase ">
+                Zima
+            </div>
+            <div class="card-body ">
+                <h5 class="card-title text-left ml-5 h1 text-primary ">Skijanje</h5>
+                <a href="# " style="text-decoration:none; ">
+                    <img src="images/skijanje.jpg " alt="skijanje " width="400 " class="tourPlans " height="250
+                " style="float:left; " />
+                </a>
+                <a href="# " style="text-decoration:none; ">
+                    <label class="card-text " style="max-width:800px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content
+                        is a little bit longer.</label>
+                </a>
+
+                <ul class="list-group list-group-flush " style="width:390px; border:none; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-users "></i>
+                            <span class="ml-2 ">Max People: From 2 to 8</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-calendar-alt "></i>
+                            <span class="ml-3 ">Availability: From November to February</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-euro-sign mr-4 "></i>From 350 to 500</p>
+                    </li>
+                </ul>
+
+                <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-180px; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text "></p>
+                        <input type="button " class="btn btn-warning " value="More Detalis " />
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text ">
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                        </p>
+                    </li>
+                    <li class="list-group-item ">
+                        <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-muted ">
+                <small class="text-muted ">
+                    <i class="far fa-clock mr-2 "></i>5 days</small>
+            </div>
+        </div>
+        <div class="card text-center mt-2 ">
+            <div class="card-header text-success h3 text-uppercase ">
+                Zima
+            </div>
+            <div class="card-body ">
+                <h5 class="card-title text-left ml-5 h1 text-primary ">Skijanje</h5>
+                <a href="# " style="text-decoration:none; ">
+                    <img src="images/skijanje.jpg " alt="skijanje " width="400 " class="tourPlans " height="250
+                " style="float:left; " />
+                </a>
+                <a href="# " style="text-decoration:none; ">
+                    <label class="card-text " style="max-width:800px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content
+                        is a little bit longer.</label>
+                </a>
+
+                <ul class="list-group list-group-flush " style="width:390px; border:none; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-users "></i>
+                            <span class="ml-2 ">Max People: From 2 to 8</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-calendar-alt "></i>
+                            <span class="ml-3 ">Availability: From November to February</span>
+                        </p>
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text " style="float:left; ">
+                            <i class="fas fa-euro-sign mr-4 "></i>From 350 to 500</p>
+                    </li>
+                </ul>
+
+                <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-180px; ">
+                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
+                        <p class="card-text "></p>
+                        <input type="button " class="btn btn-warning " value="More Detalis " />
+                    </li>
+                    <li class="list-group-item text-warning ">
+                        <p class="card-text ">
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                            <i class="far fa-star "></i>
+                        </p>
+                    </li>
+                    <li class="list-group-item ">
+                        <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-muted ">
+                <small class="text-muted ">
+                    <i class="far fa-clock mr-2 "></i>5 days</small>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-secondary " style="margin-top:0px; ">
+        <div class="row no-gutters ">
+            <div class="col-6 mt-5 ">
+                <img src="images/icon.png " alt="logo " class="img-fluid ml-2 " width="100 " height="100 " />
+                <label class="text-uppercase text-center text-warning h1 " style="opacity:0.7; ">Bosnian Tourist Travel</label>
+                <p class="ml-3 text-dark mt-4 " style="max-width:400px; ">Home to medieval villages, rivers and lakes, plus the craggy Dinaric Alps, and many more, explore our Country.
+                </p>
+                <p class="ml-3 text-dark mt-3 ">You can see BTT offers by visitting this
+                    <a href="tourPlans.html " class="text-warning " style="text-decoration:none; ">LINK.</a>
+                </p>
+            </div>
+            <div class="col-5 mt-5 offset-1 ">
+                <h1 class="text-warning mb-5 text-uppercase " style="margin-top:13px !important; opacity:0.7; ">Contact info</h1>
+                <ul class="list-group list-group-flush " style="width:500px; border:none; ">
+                    <!--angular modal <li class="list-group-item text-warning bg-secondary mt-4 ">Address:
+                            <span class="ml-5 ">
+                                <a href="# " id="map " data-toggle="modal " data-target="#map7 " style="text-decoration:none; ">
+                                    <i class="fas fa-map-marker mr-2 "></i>Grada Bakua 11, Sarajevo, B&H</a>
+                            </span>
+                        </li> -->
+                    <li class="list-group-item text-warning bg-secondary ">Phone:
+                        <span style="margin-left:60px; ">
+                            <a href="tel:+38761091675 " class="text-warning " style="text-decoration:none; ">
+                                <i class="fas fa-phone mr-2 "></i>(+387)61 091 675</a>
+                        </span>
+                    </li>
+                    <li class="list-group-item text-warning bg-secondary ">E-mail:
+                        <span style="margin-left:60px; ">
+                            <a href="mailto:abdulrahman.almonajed@gmail.com " style="text-decoration:none; " class="text-warning ">
+                                <i class="far fa-envelope mr-2 "></i>abdulrahman.almonajed@gmail.com</a>
+                        </span>
+                    </li>
+                    <li class="list-group-item text-warning bg-secondary ">
+                        Visit us on:
+                        <a href="https://www.instagram.com/bosniant/ " target="_blank " class="text-warning " style="margin-left:32px
+                !important; text-decoration:none; ">
+                            <i class="fab fa-instagram mr-2 " aria-hidden="true "></i>Instagram</a>
+                        <a href="https://www.facebook.com " target="_blank " class="text-warning ml-4 " style="text-decoration:none; ">
+                            <i class="fab fa-facebook mr-2 " aria-hidden="true "></i>Facebook</a>
+                    </li>
+                    <li class="list-group-item text-warning bg-secondary "></li>
+                </ul>
+            </div>
+            <div class="col-12 text-center text-dark mt-3 ">
+                <p style="font-size:20px; ">&copy; 2018 Abu</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
