@@ -62,7 +62,7 @@ res.redirect('/tourPlans.html')
 
 module.exports = router */
 
-app.get('/test.html', urlencodedParser, function (req, res){
+app.get('/test.html', urlencodedParser, function (req, res) {
   console.log('Getting data')
 
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
@@ -70,11 +70,11 @@ app.get('/test.html', urlencodedParser, function (req, res){
 
     var db = client.db('btt')
 
-    db.collection.find({}, function(err, result){
-      if(!err) {
+    db.collection.find({}, function (err, result) {
+      if (!err) {
         res.send(result)
       } else
-          throw err
+        throw err
     })
   })
 })
@@ -92,6 +92,7 @@ app.post('/login', urlencodedParser, function (req, res, next) {
     if (err) throw err
 
     var db = client.db('btt')
+
 
     /* db.collection('register').insertOne(item, function (err, result) {
       //assert.equal(null, err)
@@ -269,6 +270,8 @@ app.post('/update', urlencodedParser, function (req, res, next) {
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw err
     var db = client.db('btt')
+    console.log(response)
+    var response = req.body.check
     db.collection('login').find({
       email: set
     }).toArray(function (err, result) {
@@ -276,12 +279,12 @@ app.post('/update', urlencodedParser, function (req, res, next) {
         throw err
       console.log(result)
       if (result.length == 0) {
-        res.send({
+        res.set({
           success: false,
           message: 'fail',
           //token: token
         })
-        //return res.redirect('/#!forgot')
+        return res.redirect('/#!forgot')
       } else {
         db.collection('login').updateOne({
           'email': set
@@ -294,15 +297,16 @@ app.post('/update', urlencodedParser, function (req, res, next) {
           if (err) throw err
           if (result) {
             console.log('pass changed')
-            res.send({
+            res.set({
               success: true,
               message: 'good',
               //token: token
             })
+            return res.redirect('/#!login')
           }
           client.close()
         })
-        //return res.redirect('/#!login')
+
       }
     })
 

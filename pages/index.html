@@ -406,6 +406,7 @@
         app.controller('makeCtrl', makeCtrl);
         app.controller('placesCtrl', placesCtrl);
         app.controller('loginCtrl', loginCtrl);
+        app.controller('response', response);
 
         app.config(function ($routeProvider) {
             $routeProvider
@@ -426,7 +427,8 @@
                 })
                 .when("/forgot", {
                     templateUrl: "forgotPass2.html",
-                    controller: "changeCtrl"
+                    //controller: "changeCtrl",
+                    controller: "response"
                 })
                 .when("/makeTour", {
                     templateUrl: "makeTour2.html",
@@ -440,7 +442,7 @@
                     templateUrl: "login2.html"
                 })
                 .when('/test', {
-                    tempalteUrl: 'test.html'
+                    templateUrl: 'test.html'
                 });
         });
     </script>
@@ -484,9 +486,9 @@
                         <i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
                 <li class="nav-item">
-                        <a href="#!test" class="nav-link link ">
-                            <i class="far fa-smile mr-2"></i>test</a>
-                    </li>
+                    <a href="#!test" class="nav-link link ">
+                        <i class="far fa-smile mr-2"></i>test</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
