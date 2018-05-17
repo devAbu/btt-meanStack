@@ -8,6 +8,13 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+<script src="./ctrl/signCtrl.js"></script>
+<script src="./ctrl/changeCtrl.js"></script>
+<script src="./ctrl/feedbackCtrl.js"></script>
+<script src="./ctrl/loginCtrl.js"></script>
+<script src="./ctrl/makeCtrl.js"></script>
+<script src="./ctrl/placesCtrl.js"></script>
+
 <body ng-app="myApp">
 
     <!-- <div ng-include="'loginCtrl.js'"></div> -->
@@ -15,14 +22,14 @@
 
     <script>
         var app = angular.module("myApp", ["ngRoute"]);
-        app.controller('feedbackCtrl', function ($scope) {
+        /*app.controller('feedbackCtrl', function ($scope) {
             $scope.textarea = "";
             $scope.check = function check() {
                 console.log($scope.textarea);
-                /* location.href = "http://localhost:3000/insert" + "?feedback=" + $scope.textarea  */
+                /* location.href = "http://localhost:3000/insert" + "?feedback=" + $scope.textarea  *
             }
-        });
-        app.controller('signCtrl', ['$scope', function ($scope) {
+        });*/
+        /*app.controller('signCtrl', ['$scope', function ($scope) {
             $scope.first = "";
             $scope.last = "";
             $scope.email = "";
@@ -35,9 +42,9 @@
                     $scope.text = "text";
                 }
             };
-        }]);
+        }]);*/
 
-        app.controller('loginCtrl', ['$scope', function ($scope, $http) {
+        /* app.controller('loginCtrl', ['$scope', function ($scope, $http) {
             $scope.email = "";
             $scope.pass = "";
             $scope.text = "password";
@@ -47,22 +54,22 @@
                 } else {
                     $scope.text = "password";
                 }
-            };
-            /*, '$http' 
+            }; */
+        /*, '$http' 
             
-            $http.get('loginAjax.htm').then(function (res) {
-                var data = res.data;
-                console.log(data);
-                if (data.indexOf('success') > -1) {
-                    console.log('done')
-                } else {
-                    console.log('fail ')
-                }
-            }) */
-        }]);
+        $http.get('loginAjax.htm').then(function (res) {
+            var data = res.data;
+            console.log(data);
+            if (data.indexOf('success') > -1) {
+                console.log('done')
+            } else {
+                console.log('fail ')
+            }
+        }) 
+        }]); */
 
 
-        app.controller('changeCtrl', ['$scope', function ($scope) {
+        /*app.controller('changeCtrl', ['$scope', function ($scope) {
             $scope.email = "";
             $scope.pass = "";
             $scope.text = "password";
@@ -73,15 +80,15 @@
                     $scope.text = "password";
                 }
             };
-        }]);
+        }]);*/
 
-        app.controller('placesCtrl', function ($scope, $log, $window) {
+        /*app.controller('placesCtrl', function ($scope, $log, $window) {
             //iz baze podatke povuc
             /* $scope.changeWindow = function () {
                 var url = "http://" + $window.location.host + "#!makeTour";
                 $log.log(url);
                 $window.location.href = url;
-            }; */
+            }; *
             $scope.places = [{
                     period: 'November - February',
                     title: 'Zima',
@@ -96,9 +103,9 @@
                 },
             ];
 
-        });
+        });*/
 
-        app.controller('makeCtrl', function ($scope) {
+        /*app.controller('makeCtrl', function ($scope) {
             $scope.price = 0;
             $scope.people = 0;
             $scope.tour = 0;
@@ -116,7 +123,7 @@
                     console.log('igman true');
                 } else {
                     console.log("igman false");
-                } */
+                } *
 
             $scope.check = function check(event) {
                 console.log(event.target.checked);
@@ -392,7 +399,14 @@
                     console.log('no');
                 }
             }
-        })
+        })*/
+        app.controller('signCtrl', signCtrl);
+        app.controller('changeCtrl', changeCtrl);
+        app.controller('feedbackCtrl', feedbackCtrl);
+        app.controller('makeCtrl', makeCtrl);
+        app.controller('placesCtrl', placesCtrl);
+        app.controller('loginCtrl', loginCtrl);
+
         app.config(function ($routeProvider) {
             $routeProvider
                 .when("/", {
