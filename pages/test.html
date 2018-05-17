@@ -21,7 +21,7 @@
     <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script> -->
-    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <!-- <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>-->
     <!--provjeriti-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
@@ -32,123 +32,19 @@
 
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="myCtrl">
 
-    <!-- <nav class="navbar bg-primary navbar-dark navbar-expand-sm fixed-top" style="opacity:0.7; font-size:18px;">
-        <a href="index.html" class="navbar-brand">
-            <img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" />
-            <span class="h4">BTT</span>
-        </a>
-        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-            aria-expended="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav" id="navScrollspy">
-                <li class="nav-item">
-                    <a href="#/!" class="nav-link link active">
-                        <i class="fas fa-home mr-2"></i>Home</a>
-                </li>
-                <li class="nav-item">
-                    <!-- <a href="aboutUs.html" class="nav-link link"> --
-                    <a href="#!about" class="nav-link link">
-                        <i class="fas fa-users mr-2"></i>About Us</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#!feedback2" class="nav-link link">
-                        <!-- <a href="feedback.html" class="nav-link link"> --
-                        <i class="far fa-smile mr-2"></i>Feedback</a>
-                </li>
-            </ul>
-
+    <ui-view>
+        <div class="sub-header">
+            <h3>Company Details</h3>
         </div>
-    </nav> -->
 
-
-
-    Main page
-
-    <div ng-view></div>
-
-    <script>
-        var app = angular.module("myApp", ["ngRoute"]);
-        app.config(function ($routeProvider) {
-            $routeProvider
-                .when("/", {
-                    templateUrl: "proba.html"
-                })
-                .when("/about", {
-                    templateUrl: "proba2.html"
-                })
-                .when("/register2", {
-                    templateUrl: "register2.html"
-                })
-                .when("/feedback2", {
-                    templateUrl: "feedback2.html"
-                });
-        });
-    </script>
-    <a href="#/!">Proba</a>
-
-    <a href="#!red">Proba2</a>
-    <a href="#!register2">Green</a>
-    <a href="#!feedback2">Blue</a>
-
-
-
-    <!-- <footer class="bg-secondary ">
-        <div class="row no-gutters ">
-            <div class="col-6 mt-5 ">
-                <img src="images/icon.png " alt="logo " class="img-fluid ml-2 " width="100 " height="100 " />
-                <label class="text-uppercase text-center text-warning h1 " style="opacity:0.7; ">Bosnian Tourist Travel</label>
-                <p class="ml-3 text-dark mt-4 " style="max-width:400px; ">Home to medieval villages, rivers and lakes, plus the craggy Dinaric Alps, and many more, explore our Country.</p>
-                <p class="ml-3 text-dark mt-3 ">You can see BTT offers by visitting this
-                    <a href="tourPlans.html " class="text-warning " style="text-decoration:none; ">LINK.</a>
-                </p>
-            </div>
-            <div class="col-5 mt-5 offset-1 ">
-                <h1 class="text-warning mb-5 text-uppercase " style="margin-top:13px !important; opacity:0.7; ">Contact info</h1>
-                <ul class="list-group list-group-flush " style="width:500px; border:none; ">
-                    <!-- modal angularaov<li class="list-group-item text-warning bg-secondary mt-4 ">Address:
-                            <span class="ml-5 ">
-                                <a href="# " id="map " data-toggle="modal " class="text-warning " data-target="#map7
-                        " style="text-decoration:none; ">
-                                    <i class="fas fa-map-marker mr-2 "></i>Grada Bakua 11, Sarajevo, B&H</a>
-                            </span>
-                        </li> --
-                    <li class="list-group-item text-warning bg-secondary ">Phone:
-                        <span style="margin-left:60px; ">
-                            <a href="tel:+38761091675 " class="text-warning " style="text-decoration:none; ">
-                                <i class="fas fa-phone mr-2 "></i>(+387)61 091 675</a>
-                        </span>
-                    </li>
-                    <li class="list-group-item text-warning bg-secondary ">E-mail:
-                        <span style="margin-left:60px; ">
-                            <a href="mailto:abdulrahman.almonajed@gmail.com " style="text-decoration:none; " class="text-warning ">
-                                <i class="far fa-envelope mr-2 "></i>abdulrahman.almonajed@gmail.com</a>
-                        </span>
-                    </li>
-                    <li class="list-group-item text-warning bg-secondary ">
-                        Visit us on:
-                        <a href="https://www.instagram.com/bosniant/ " target="_blank " class="text-warning " style="margin-left:32px
-                        !important; text-decoration:none; ">
-                            <i class="fab fa-instagram mr-2 " aria-hidden="true "></i>Instagram</a>
-                        <a href="https://www.facebook.com " target="_blank " class="text-warning ml-4 " style="text-decoration:none; ">
-                            <i class="fab fa-facebook mr-2 " aria-hidden="true "></i>Facebook</a>
-                    </li>
-                    <li class="list-group-item text-warning bg-secondary "></li>
-                </ul>
-            </div>
-            <div class="col-12 text-center text-dark mt-3 ">
-                <p style="font-size:20px; ">&copy; 2018 Abu</p>
-            </div>
-        </div>
-    </footer> -->
-
-    <!-- <a href="#!about">Red</a>
-    <a href="#!register2">Green</a>
-    <a href="#!feedback2">Blue</a> -->
+    <ul>
+       <li ng-repeat="users in result">
+           {{users.title}}
+       </li>
+    </ul>
+    </ui-view>
 </body>
 
 </html>

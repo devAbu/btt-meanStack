@@ -9,4 +9,9 @@ function changeCtrl($scope) {
             $scope.text = "password";
         }
     };
+     /*$scope.signButton = function () {
+        $http.get("/update").then(function (res){
+            $scope.check = res.message
+        })
+    } */
 }

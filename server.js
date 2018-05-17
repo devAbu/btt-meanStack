@@ -62,6 +62,23 @@ res.redirect('/tourPlans.html')
 
 module.exports = router */
 
+app.get('/test.html', urlencodedParser, function (req, res){
+  console.log('Getting data')
+
+  mongoClient.connect('mongodb://localhost:27017', (err, client) => {
+    if (err) throw err
+
+    var db = client.db('btt')
+
+    db.collection.find({}, function(err, result){
+      if(!err) {
+        res.send(result)
+      } else
+          throw err
+    })
+  })
+})
+
 app.post('/login', urlencodedParser, function (req, res, next) {
   var item = {
     emailLog: req.body.emailLog,
@@ -259,7 +276,12 @@ app.post('/update', urlencodedParser, function (req, res, next) {
         throw err
       console.log(result)
       if (result.length == 0) {
-        return res.redirect('/#!forgot')
+        res.send({
+          success: false,
+          message: 'fail',
+          //token: token
+        })
+        //return res.redirect('/#!forgot')
       } else {
         db.collection('login').updateOne({
           'email': set
@@ -270,10 +292,17 @@ app.post('/update', urlencodedParser, function (req, res, next) {
           console.log(set)
           console.log(item)
           if (err) throw err
-          console.log('pass changed')
+          if (result) {
+            console.log('pass changed')
+            res.send({
+              success: true,
+              message: 'good',
+              //token: token
+            })
+          }
           client.close()
         })
-        return res.redirect('/#!login')
+        //return res.redirect('/#!login')
       }
     })
 
