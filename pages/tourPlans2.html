@@ -131,7 +131,8 @@
                     </a>
                 </div>
             </div>
-            <!-- <a href="/getData">LOAD DATA</a>
+        </div>
+        <!-- <a href="/getData">LOAD DATA</a>
         <div>
             {{# each items }}
                 <article class="item">
@@ -140,31 +141,31 @@
                 </article>
             {{/each}}
         </div> -->
-            <script>
-                angular.module('myApp', []).controller('placesCtrl', function ($scope, $log, $window) {
-                    //iz baze podatke povuc
-                    /* $scope.changeWindow = function () {
-                        var url = "http://" + $window.location.host + "#!makeTour";
-                        $log.log(url);
-                        $window.location.href = url;
-                    }; */
-                    $scope.places = [{
-                            period: 'November - February',
-                            title: 'Zima',
-                            length: '5 days',
-                            people: '8 max'
-                        },
-                        {
-                            period: 'March - August',
-                            title: 'Jesen - Proljece - Ljeto',
-                            length: '7 days',
-                            people: '8 max'
-                        },
-                    ];
+        <script>
+            angular.module('myApp', []).controller('placesCtrl', function ($scope, $log, $window) {
+                //iz baze podatke povuc
+                /* $scope.changeWindow = function () {
+                    var url = "http://" + $window.location.host + "#!makeTour";
+                    $log.log(url);
+                    $window.location.href = url;
+                }; */
+                $scope.places = [{
+                        period: 'November - February',
+                        title: 'Zima',
+                        length: '5 days',
+                        people: '8 max'
+                    },
+                    {
+                        period: 'March - August',
+                        title: 'Jesen - Proljece - Ljeto',
+                        length: '7 days',
+                        people: '8 max'
+                    },
+                ];
 
-                });
-            </script>
-            
+            });
+        </script>
+
     </section>
 
     <section>
@@ -204,20 +205,7 @@
                 </ul>
 
                 <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-180px; ">
-                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                        <p class="card-text "></p>
-                        <input type="button " class="btn btn-warning " value="More Detalis " />
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text ">
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                        </p>
-                    </li>
-                    <li class="list-group-item ">
+                    <li class="list-group-item " style=" border:none;">
                         <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
                     </li>
                 </ul>
@@ -261,20 +249,7 @@
                 </ul>
 
                 <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right;margin-top:-180px; ">
-                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                        <p class="card-text "></p>
-                        <input type="button " class="btn btn-warning " value="More Detalis " />
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text ">
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                        </p>
-                    </li>
-                    <li class="list-group-item ">
+                    <li class="list-group-item " style=" border:none;">
                         <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
                     </li>
                 </ul>
@@ -318,20 +293,7 @@
                 </ul>
 
                 <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right;margin-top:-180px; ">
-                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                        <p class="card-text "></p>
-                        <input type="button " class="btn btn-warning " value="More Detalis " />
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text ">
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                        </p>
-                    </li>
-                    <li class="list-group-item ">
+                    <li class="list-group-item " style=" border:none;">
                         <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
                     </li>
                 </ul>
@@ -341,238 +303,7 @@
                     <i class="far fa-clock mr-2 "></i>10 days</small>
             </div>
         </div>
-        <div class="card text-center mt-2 ">
-            <div class="card-header text-success h3 text-uppercase ">
-                Zima
-            </div>
-            <div class="card-body ">
-                <h5 class="card-title text-left ml-5 h1 text-primary ">Skijanje</h5>
-                <a href="# " style="text-decoration:none; ">
-                    <img src="images/skijanje.jpg " alt="skijanje " width="400 " class="tourPlans " height="250
-                " style="float:left; " />
-                </a>
-                <a href="# " style="text-decoration:none; ">
-                    <label class="card-text " style="max-width:800px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content
-                        is a little bit longer.</label>
-                </a>
 
-                <ul class="list-group list-group-flush " style="width:390px; border:none; ">
-                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-users "></i>
-                            <span class="ml-2 ">Max People: From 2 to 8</span>
-                        </p>
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-calendar-alt "></i>
-                            <span class="ml-3 ">Availability: From November to February</span>
-                        </p>
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-euro-sign mr-4 "></i>From 350 to 500</p>
-                    </li>
-                </ul>
-
-                <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-180px; ">
-                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                        <p class="card-text "></p>
-                        <input type="button " class="btn btn-warning " value="More Detalis " />
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text ">
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                        </p>
-                    </li>
-                    <li class="list-group-item ">
-                        <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
-                    </li>
-                </ul>
-            </div>
-            <div class="card-footer text-muted ">
-                <small class="text-muted ">
-                    <i class="far fa-clock mr-2 "></i>5 days</small>
-            </div>
-        </div>
-        <div class="card text-center mt-2 ">
-            <div class="card-header text-success h3 text-uppercase ">
-                Zima
-            </div>
-            <div class="card-body ">
-                <h5 class="card-title text-left ml-5 h1 text-primary ">Skijanje</h5>
-                <a href="# " style="text-decoration:none; ">
-                    <img src="images/skijanje.jpg " alt="skijanje " width="400 " class="tourPlans " height="250
-                " style="float:left; " />
-                </a>
-                <a href="# " style="text-decoration:none; ">
-                    <label class="card-text " style="max-width:800px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content
-                        is a little bit longer.</label>
-                </a>
-
-                <ul class="list-group list-group-flush " style="width:390px; border:none; ">
-                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-users "></i>
-                            <span class="ml-2 ">Max People: From 2 to 8</span>
-                        </p>
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-calendar-alt "></i>
-                            <span class="ml-3 ">Availability: From November to February</span>
-                        </p>
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-euro-sign mr-4 "></i>From 350 to 500</p>
-                    </li>
-                </ul>
-
-                <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-180px; ">
-                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                        <p class="card-text "></p>
-                        <input type="button " class="btn btn-warning " value="More Detalis " />
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text ">
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                        </p>
-                    </li>
-                    <li class="list-group-item ">
-                        <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
-                    </li>
-                </ul>
-            </div>
-            <div class="card-footer text-muted ">
-                <small class="text-muted ">
-                    <i class="far fa-clock mr-2 "></i>5 days</small>
-            </div>
-        </div>
-        <div class="card text-center mt-2 ">
-            <div class="card-header text-success h3 text-uppercase ">
-                Zima
-            </div>
-            <div class="card-body ">
-                <h5 class="card-title text-left ml-5 h1 text-primary ">Skijanje</h5>
-                <a href="# " style="text-decoration:none; ">
-                    <img src="images/skijanje.jpg " alt="skijanje " width="400 " class="tourPlans " height="250
-                " style="float:left; " />
-                </a>
-                <a href="# " style="text-decoration:none; ">
-                    <label class="card-text " style="max-width:800px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content
-                        is a little bit longer.</label>
-                </a>
-
-                <ul class="list-group list-group-flush " style="width:390px; border:none; ">
-                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-users "></i>
-                            <span class="ml-2 ">Max People: From 2 to 8</span>
-                        </p>
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-calendar-alt "></i>
-                            <span class="ml-3 ">Availability: From November to February</span>
-                        </p>
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-euro-sign mr-4 "></i>From 350 to 500</p>
-                    </li>
-                </ul>
-
-                <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-180px; ">
-                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                        <p class="card-text "></p>
-                        <input type="button " class="btn btn-warning " value="More Detalis " />
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text ">
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                        </p>
-                    </li>
-                    <li class="list-group-item ">
-                        <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
-                    </li>
-                </ul>
-            </div>
-            <div class="card-footer text-muted ">
-                <small class="text-muted ">
-                    <i class="far fa-clock mr-2 "></i>5 days</small>
-            </div>
-        </div>
-        <div class="card text-center mt-2 ">
-            <div class="card-header text-success h3 text-uppercase ">
-                Zima
-            </div>
-            <div class="card-body ">
-                <h5 class="card-title text-left ml-5 h1 text-primary ">Skijanje</h5>
-                <a href="# " style="text-decoration:none; ">
-                    <img src="images/skijanje.jpg " alt="skijanje " width="400 " class="tourPlans " height="250
-                " style="float:left; " />
-                </a>
-                <a href="# " style="text-decoration:none; ">
-                    <label class="card-text " style="max-width:800px; ">This is a wider card with supporting text below as a natural lead-in to additional content. This content
-                        is a little bit longer.</label>
-                </a>
-
-                <ul class="list-group list-group-flush " style="width:390px; border:none; ">
-                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-users "></i>
-                            <span class="ml-2 ">Max People: From 2 to 8</span>
-                        </p>
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-calendar-alt "></i>
-                            <span class="ml-3 ">Availability: From November to February</span>
-                        </p>
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text " style="float:left; ">
-                            <i class="fas fa-euro-sign mr-4 "></i>From 350 to 500</p>
-                    </li>
-                </ul>
-
-                <ul class="list-group list-group-flush mr-5 " style=" border:none;float:right; margin-top:-180px; ">
-                    <li class="list-group-item text-warning mt-4 " style="border:none; ">
-                        <p class="card-text "></p>
-                        <input type="button " class="btn btn-warning " value="More Detalis " />
-                    </li>
-                    <li class="list-group-item text-warning ">
-                        <p class="card-text ">
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                            <i class="far fa-star "></i>
-                        </p>
-                    </li>
-                    <li class="list-group-item ">
-                        <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
-                    </li>
-                </ul>
-            </div>
-            <div class="card-footer text-muted ">
-                <small class="text-muted ">
-                    <i class="far fa-clock mr-2 "></i>5 days</small>
-            </div>
-        </div>
     </section>
 
     <!-- <footer class="bg-secondary " style="margin-top:0px; ">

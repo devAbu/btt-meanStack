@@ -18,13 +18,13 @@ var urlencodedParser = bodyParser.urlencoded({
 
 app.use(express.static(__dirname + '/pages'))
 
-/* app.set('view engine', 'ejs');
+/* app.set('view engine', 'ejs')
 
 app.get('/', function (req, res) {
-  res.render('pages/index');
-});
+  res.render('pages/index')
+})
 app.get('/aboutUs', function (req, res) {
-  res.render('pages/aboutUs');
+  res.render('pages/aboutUs')
 }); */
 /* app.get('/getData', urlencodedParser, function (req, res, next) {
   var resultArray = []
@@ -93,7 +93,6 @@ app.post('/login', urlencodedParser, function (req, res, next) {
 
     var db = client.db('btt')
 
-
     /* db.collection('register').insertOne(item, function (err, result) {
       //assert.equal(null, err)
      if (err) throw err
@@ -131,17 +130,18 @@ app.post('/login', urlencodedParser, function (req, res, next) {
               /* assert.equal(null, err) */
               if (err) throw err
               console.log('item inserted')
+
               client.close()
             })
-            return res.redirect('#/!')
+            return res.redirect('/')
           }
 
-          // return res.redirect('/index.html')
+        // return res.redirect('/index.html')
         })
       }
     })
   })
-  // res.redirect('/login.html')
+// res.redirect('/login.html')
 })
 
 app.post('/insertFeedback', urlencodedParser, function (req, res, next) {
@@ -149,8 +149,8 @@ app.post('/insertFeedback', urlencodedParser, function (req, res, next) {
   var params = url.parse(req.url, true).query */
   var item = {
     feedback: req.body.feedback
-    /* feedback: 'test',
-    test: 'testRout' */
+  /* feedback: 'test',
+  test: 'testRout' */
   }
 
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
@@ -175,8 +175,8 @@ app.post('/insertRegister', urlencodedParser, function (req, res, next) {
     lastSign: req.body.lastSign,
     email: req.body.emailSign,
     passSign: req.body.passSign
-    /* feedback: 'test',
-    test: 'testRout' */
+  /* feedback: 'test',
+  test: 'testRout' */
   }
 
   var find = req.body.emailSign
@@ -203,11 +203,11 @@ app.post('/insertRegister', urlencodedParser, function (req, res, next) {
           console.log('item inserted')
           client.close()
         })
-        return res.redirect('#/!')
+        return res.redirect('/')
       }
     })
   })
-  // res.redirect('/index.html')
+// res.redirect('/index.html')
 })
 
 app.post('/insertRequest', urlencodedParser, function (req, res, next) {
@@ -233,8 +233,8 @@ app.post('/insertRequest', urlencodedParser, function (req, res, next) {
     interpreterNo: req.body.no,
     price: req.body.price,
 
-    /* feedback: 'test',
-    test: 'testRout' */
+  /* feedback: 'test',
+  test: 'testRout' */
   }
 
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
@@ -265,7 +265,7 @@ app.post('/update', urlencodedParser, function (req, res, next) {
   }
 
   var set =
-    req.body.emailSign
+  req.body.emailSign
 
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw err
@@ -282,7 +282,7 @@ app.post('/update', urlencodedParser, function (req, res, next) {
         res.set({
           success: false,
           message: 'fail',
-          //token: token
+        // token: token
         })
         return res.redirect('/#!forgot')
       } else {
@@ -300,18 +300,16 @@ app.post('/update', urlencodedParser, function (req, res, next) {
             res.set({
               success: true,
               message: 'good',
-              //token: token
+            // token: token
             })
             return res.redirect('/#!login')
           }
           client.close()
         })
-
       }
     })
-
   })
-  //res.redirect('/login.html')
+// res.redirect('/login.html')
 })
 
 app.post('/delete', function (req, res, next) {})
