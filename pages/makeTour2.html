@@ -128,10 +128,15 @@
                             <h4 class="text-success">Budget:</h4>
                             <div class="input-group">
                                 <span class="input-group-addon">$</span>
-                                <input type="number" id="budget" name="budget" ng-change="check17()" ng-model="budget" min="0" step="10" max="8999" class="form-control currency"
+                                <input type="number" id="budget" name="budget" ng-change="check17()" ng-model="budget" min="0" step="10" max="8999" class="form-control currency" required
                                 />
+                                
                                 <!--  onchange="price()" -->
                             </div>
+                            <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.budget.$dirty">
+                                <span ng-show="makeForm.budget.$error.required">Please enter your budget
+                                </span>
+                            </span>
                         </div>
                         <div class="col-12">
                             <h4 class="text-success">No. of people:</h4>
@@ -139,12 +144,12 @@
                             <input type="number" id="people" ng-change="check16()" name="people" ng-model="people" min="0" step="1" max="15" class="form-control"
                                 required />
                             <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.people.$dirty">
-                                <span ng-show="makeForm.people.$error.required"> Please enter the length of your tour!!!
+                                <span ng-show="makeForm.people.$error.required"> Please enter how many there will be
                                 </span>
                             </span>
                             <span style="color:red" class="offset-1 mb-3" ng-show="makeForm.people.$invalid ">
                                 <!-- <span ng-show="myForm.myInput.$error.required"> Please enter your last name!!! </span> -->
-                                <span ng-show="makeForm.people.$invalid">The max length of the tour is 15 days</span>
+                                <span ng-show="makeForm.people.$invalid">The max number of people is 15 days</span>
                             </span>
                             <!-- onchange="price()" -->
                         </div>
@@ -161,7 +166,8 @@
                             </div>
                         </div>
                         <div class="col-12 mt-4">
-                            <button type="submit" class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
+                            <button type="submit" class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"  ng-disabled=" makeForm.people.$dirty && makeForm.people.$invalid || makeForm.length.$dirty && makeForm.length.$invalid || makeForm.budget.$invalid && makeForm.budget.$dirty || makeForm.people.$untouched || makeForm.length.$untouched ">
+                                Send request</button>
                         </div>
                     </div>
                 </div>
@@ -195,9 +201,9 @@
                 <div class="col-3 offset-1 mt-4">
                     <h4 class="text-success">Interpreter:</h4>
 
-                    <input type="checkbox" class="w3-check mr-1" id="yes" ng-click="check13($event)" name="yes" />Yes
+                    <input type="radio" id="yes" ng-click="check13($event)" name="yes" value="yes" />Yes
                     <!-- onclick="price()" -->
-                    <input type="checkbox" class="w3-check mr-1" id="no" ng-click="check14($event)" name="no" />No
+                    <input type="radio" id="no" ng-click="check14($event)" name="yes" value="no"/>No
                     <!-- onclick="price()" -->
                 </div>
 
