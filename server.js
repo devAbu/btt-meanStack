@@ -136,12 +136,12 @@ app.post('/login', urlencodedParser, function (req, res, next) {
             return res.redirect('/')
           }
 
-          // return res.redirect('/index.html')
+        // return res.redirect('/index.html')
         })
       }
     })
   })
-  // res.redirect('/login.html')
+// res.redirect('/login.html')
 })
 
 app.post('/insertFeedback', urlencodedParser, function (req, res, next) {
@@ -149,8 +149,8 @@ app.post('/insertFeedback', urlencodedParser, function (req, res, next) {
   var params = url.parse(req.url, true).query */
   var item = {
     feedback: req.body.feedback
-    /* feedback: 'test',
-    test: 'testRout' */
+  /* feedback: 'test',
+  test: 'testRout' */
   }
 
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
@@ -175,8 +175,8 @@ app.post('/insertRegister', urlencodedParser, function (req, res, next) {
     lastSign: req.body.lastSign,
     email: req.body.emailSign,
     passSign: req.body.passSign
-    /* feedback: 'test',
-    test: 'testRout' */
+  /* feedback: 'test',
+  test: 'testRout' */
   }
 
   var find = req.body.emailSign
@@ -207,7 +207,7 @@ app.post('/insertRegister', urlencodedParser, function (req, res, next) {
       }
     })
   })
-  // res.redirect('/index.html')
+// res.redirect('/index.html')
 })
 
 app.post('/insertRequest', urlencodedParser, function (req, res, next) {
@@ -232,14 +232,14 @@ app.post('/insertRequest', urlencodedParser, function (req, res, next) {
     interpreterYes: req.body.yes,
     price: req.body.price,
 
-    /* feedback: 'test',
-    test: 'testRout' */
+  /* feedback: 'test',
+  test: 'testRout' */
   }
 
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw err
     /* if (igman == null && mostar == null && jajce == null && konjic == null && bjelasnica == null && trebevic == null && sarajevo == null && jahorina == null) {
-      res.redirect('/#!makeTour');
+      res.redirect('/#!makeTour')
     } else if (length == 0 || people == 0) {
       res.redirect('/#!makeTour')
     } */
@@ -269,7 +269,7 @@ app.post('/update', urlencodedParser, function (req, res, next) {
   }
 
   var set =
-    req.body.emailSign
+  req.body.emailSign
 
   mongoClient.connect('mongodb://localhost:27017', (err, client) => {
     if (err) throw err
@@ -286,7 +286,7 @@ app.post('/update', urlencodedParser, function (req, res, next) {
         res.set({
           success: false,
           message: 'fail',
-          // token: token
+        // token: token
         })
         return res.redirect('/#!forgot')
       } else {
@@ -304,7 +304,7 @@ app.post('/update', urlencodedParser, function (req, res, next) {
             res.set({
               success: true,
               message: 'good',
-              // token: token
+            // token: token
             })
             return res.redirect('/#!login')
           }
@@ -313,7 +313,27 @@ app.post('/update', urlencodedParser, function (req, res, next) {
       }
     })
   })
-  // res.redirect('/login.html')
+// res.redirect('/login.html')
+})
+
+app.post('/ask', urlencodedParser, function (req, res, next) {
+  var item = {
+    question: req.body.question
+  }
+
+  mongoClient.connect('mongodb://localhost:27017', (err, client) => {
+    if (err) throw err
+
+    var db = client.db('btt')
+
+    db.collection('question').insertOne(item, function (err, result) {
+      if (err) throw err
+
+      console.log('question sent')
+      client.close()
+    })
+    return res.redirect('/')
+  })
 })
 
 app.post('/delete', function (req, res, next) {})

@@ -547,7 +547,15 @@
                         <a href="https://www.facebook.com" target="_blank" class="text-warning ml-4" style="text-decoration:none;">
                             <i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
                     </li>
-                    <li class="list-group-item text-warning bg-secondary"></li>
+                    <li class="list-group-item text-warning bg-secondary">
+                        <form action="/ask" method="post" name="askForm">
+
+                            <textarea rows="2" cols="20" name="question" id="question" ng-model=" question" style="resize: none;" placeholder="Question"
+                                required></textarea>
+                            <button type="submit" class="bg-secondary" ng-disabled="askForm.question.$untouched || askForm.question.$invalid">Send
+                            </button>
+                        </form>
+                    </li>
                 </ul>
             </div>
             <div class="col-12 text-center text-dark mt-3">
