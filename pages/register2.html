@@ -151,7 +151,7 @@
                     </div>
 
                     <div class="card-body text-center" style="margin-left:100px !important;">
-                        <button type="submit" class="btn btn-warning text-white" ng-disabled="signForm.firstSign.$dirty && signForm.firstSign.$invalid || signForm.lastSign.$dirty && signForm.lastSign.$invalid || signForm.emailSign.$dirty && signForm.emailSign.$invalid || signForm.passSign.$dirty && signForm.passSign.$invalid"
+                        <button type="submit" class="btn btn-warning text-white" ng-disabled="signForm.firstSign.$dirty && signForm.firstSign.$invalid || signForm.lastSign.$dirty && signForm.lastSign.$invalid || signForm.emailSign.$dirty && signForm.emailSign.$invalid || signForm.passSign.$dirty && signForm.passSign.$invalid || signForm.firstSign.$untouched || signForm.lastSign.$untouched || signForm.emailSign.$untouched || signForm.passSign.$untouched"
                             id="signButton" name="signButton">Sign up for free
                             <i class="fas fa-user-plus ml-2"></i>
                         </button>

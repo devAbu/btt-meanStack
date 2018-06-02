@@ -133,7 +133,7 @@
                     </div>
 
                     <div class="card-body text-center" style="margin-left:100px !important;">
-                        <button type="submit" class="btn btn-warning text-white" ng-disabled=" loginForm.emailLog.$dirty && loginForm.emailLog.$invalid || loginForm.passLog.$dirty && loginForm.passLog.$invalid"
+                        <button type="submit" class="btn btn-warning text-white" ng-disabled=" loginForm.emailLog.$dirty && loginForm.emailLog.$invalid || loginForm.passLog.$dirty && loginForm.passLog.$invalid || loginForm.passLog.$untouched || loginForm.emailLog.$untouched"
                             id="signButton" name="signButton">Login
                             <i class="fas fa-user-plus ml-2"></i>
                         </button>

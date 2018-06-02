@@ -104,7 +104,7 @@
                 </span>
             </div>
             <div class="col-lg-6 offset-5 ">
-                <input type="submit" ng-click="check()" ng-disabled="feedbackForm.feedback.$dirty && feedbackForm.feedback.$invalid" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2"
+                <input type="submit" ng-click="check()" ng-disabled="feedbackForm.feedback.$dirty && feedbackForm.feedback.$invalid || feedbackForm.feedback.$untouched" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2"
                     value="SEND" />
             </div>
         </form>
