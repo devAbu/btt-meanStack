@@ -336,6 +336,20 @@ app.post('/ask', urlencodedParser, function (req, res, next) {
   })
 })
 
+/* app.get('/view', function (req, res) {
+  mongoClient.connect('mongodb://localhost:27017', (err, client) => {
+    if (err) throw err
+
+    var db = client.db('btt')
+    db.collection('tour').find({}, function (err, docs) {
+      if (err)
+        throw err
+      //res.send('test2', {tour: docs})
+      res.render('test2', {tour: docs})
+    })
+  })
+})
+ */
 app.post('/delete', function (req, res, next) {})
 
 app.listen(3000, function () {
